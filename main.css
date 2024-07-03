@@ -1,0 +1,44 @@
+* {
+    margin: 0%;
+}
+
+header {
+    display: grid;
+    grid-template-columns: 100%;
+}
+
+#Navigation {
+    padding: 0.5%;
+    display: grid;
+    grid-template-columns: 20% 80%;
+    align-items: center;
+    background-color: #395A7F;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif ;}
+
+
+h1 {
+grid-column: 1;
+float: left;
+font-size: 2vw;
+}
+
+
+nav { 
+    display: flex; 
+    grid-column: 2;
+    justify-self: flex-end;
+ }
+
+ul {
+    list-style: none;
+    font-size: 1vw;
+    padding-left: 0;
+    margin: 0;
+    width: 100%;
+}
+
+li {
+    display: inline-block;
+    padding: 1%;
+}
