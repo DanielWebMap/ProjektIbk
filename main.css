@@ -43,6 +43,33 @@ a {
 
 
 #w_map {
-    width: 100%;
-    height: 100vh;
+    width: 50vw;
+    height: 50vh;
+    border-width: 10px;
 }
+
+
+/*Höhenprofil*/
+
+#profile {
+    margin-top: 0.3em;
+    border: 1px solid gray;
+    fill: black;
+    width: 100vw;
+    }
+
+.ibk_hiking {
+    --ele-bg: white;
+    --ele-axis: #566B13;
+    --ele-area: #58A4BB;
+    --ele-grid: #CCC;
+    --ele-brush: rgba(99, 126, 11, 0.4);
+    --ele-poly: #566B13;
+    --ele-line: red;
+    --ele-circle: red;
+}
+
+.elevation-expanded {
+    --ele-close-btn: inline-block;
+}
+

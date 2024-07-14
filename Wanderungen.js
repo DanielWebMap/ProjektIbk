@@ -14,3 +14,14 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 L.control.scale({
     imperial: false,
 }).addTo(w_map);
+
+
+//Höhenprofil 
+
+let controlElevation = L.control.elevation({
+    time: false,
+    elevationDiv: "#profile",
+    height: 300,
+    theme: "ibk_hiking",
+}).addTo(w_map);
+controlElevation.load("Wanderungen/Seefeld.gpx");
