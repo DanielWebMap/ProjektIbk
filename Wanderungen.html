@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,49 +32,151 @@
     <!-- eigene Stile und Hauptskript -->
     <link rel="stylesheet" href="main.css">
     <script defer src="Wanderungen.js"></script>
-    
+
 
     <!-- leaflet-elevation -->
     <link rel="stylesheet" href="https://unpkg.com/@raruto/leaflet-elevation/dist/leaflet-elevation.css" />
     <script src="https://unpkg.com/@raruto/leaflet-elevation/dist/leaflet-elevation.js"></script>
 
-      <!-- Minimap -->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.css"
-      integrity="sha512-efbAfGnrnjA+hLwOLu91W034fBGPsMwZMVCTwLUI2PDX/m7rOiuhYZ+D2mZ8rKcpC/I/7pdgoL8T4eYvMHNoQg=="
-      crossorigin="anonymous" referrerpolicy="no-referrer" />
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.js"
-      integrity="sha512-ceQPs2CHke3gSINLt/JV37W1rfJOM64yuH999hnRhTP7tNtcSBp5hlTKhn8CEIhsFweSBrZMPVotAKjoyxGWNg=="
-      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Minimap -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.css"
+        integrity="sha512-efbAfGnrnjA+hLwOLu91W034fBGPsMwZMVCTwLUI2PDX/m7rOiuhYZ+D2mZ8rKcpC/I/7pdgoL8T4eYvMHNoQg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.js"
+        integrity="sha512-ceQPs2CHke3gSINLt/JV37W1rfJOM64yuH999hnRhTP7tNtcSBp5hlTKhn8CEIhsFweSBrZMPVotAKjoyxGWNg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <header>
     <div id="Navigation">
         <h1>Innsbruck Outdoor</h1>
-            <ul>
-                <li><a href="index.html">Startseite</a></li>
-                <li><a href="Wanderungen.html">Wanderungen</a></li>
-                <li><a href="Fahrradtouren.html">Fahrradtouren</a></li>
-                <li><a href="Spot_Highlights.html">Spot-Highlights</a></li>
-                <li><a href="Daniel.html">Über Mich</li></a>
-            </ul>
+        <ul>
+            <li><a href="index.html">Startseite</a></li>
+            <li><a href="Wanderungen.html">Wanderungen</a></li>
+            <li><a href="Fahrradtouren.html">Fahrradtouren</a></li>
+            <li><a href="Spot_Highlights.html">Spot-Highlights</a></li>
+            <li><a href="Daniel.html">Über Mich</li></a>
+        </ul>
     </div>
 </header>
+
 <body>
     <main>
         <div id="w_allg">
-            <h2>Wanderungen</h2> 
-            <button id="b1">Auswahl</button>
+            <h2>Wanderungen</h2>
+            <button id="b1" onclick="InhaltUmschalten()">Inhalt Umschalten</button>
 
         </div>
 
         <div id="w_spez">
-        <div id="w_map"></div>
-        <div id="profile"></div>
+            <div id="w_map"></div>
+            <div id="profile"></div>
+            <div id="Seefeld">
+                <div class="slideshow-container">
+                    <div class="mySlides fade">
+                        <div class="image-container">
+                            <img src="data/SF_1.JPEG" style="width:100%">
+                        </div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="image-container">
+                            <img src="data/SF_2.JPEG" style="width:100%">
+                        </div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="image-container">
+                            <img src="data/SF_3.JPEG" style="width:100%">
+                        </div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="image-container">
+                            <img src="data/SF_4.JPEG" style="width:100%">
+                        </div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="image-container">
+                            <img src="data/SF_5.JPEG" style="width:100%">
+                        </div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="image-container">
+                            <img src="data/SF_6.JPEG" style="width:100%">
+                        </div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="image-container">
+                            <img src="data/SF_7.JPEG" style="width:100%">
+                        </div>
+                    </div>
+                    <!-- Pfeile -->
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                </div>
+            </div>
+
+            <div id="Achensee" style="display: none;">
+                <div class="slideshow-container">
+                    <div class="mySlides fade">
+                        <div class="image-container">
+                            <img src="data/AS_1.JPEG" style="width:100%">
+                        </div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="image-container">
+                            <img src="data/AS_2.JPEG" style="width:100%">
+                        </div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="image-container">
+                            <img src="data/AS_3.JPEG" style="width:100%">
+                        </div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="image-container">
+                            <img src="data/AS_4.JPEG" style="width:100%">
+                        </div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="image-container">
+                            <img src="data/AS_5.JPEG" style="width:100%">
+                        </div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="image-container">
+                            <img src="data/AS_6.JPEG" style="width:100%">
+                        </div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="image-container">
+                            <img src="data/AS_7.JPEG" style="width:100%">
+                        </div>
+                    </div>
+                    <!-- Pfeile -->
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                </div>
+            </div>
+
+
         </div>
 
 
-    </main>  
+
+    </main>
     <footer>
         @Daniel Schönung
     </footer>
 </body>
+
 </html>
