@@ -29,6 +29,10 @@ controlElevation.load("Wanderungen/Seefeld.gpx");
 
 //SLIDESHOW
 
+let content1 = document.getElementById("Seefeld");
+let content2 = document.getElementById("Achensee");
+
+
 let slideIndex = 1;
 showSlides(slideIndex);
 
@@ -40,8 +44,15 @@ function plusSlides(n) {
 // Aktuelles Bild anzeigen
 function showSlides(n) {
     let i;
+    let slides;
     
-    let slides = document.getElementsByClassName("mySlides");
+    if (content1.style.display === "block") {
+    slides = document.querySelectorAll("#Seefeld .mySlides"); }
+
+    else if (content2.style.display === "block") {
+    slides = document.querySelectorAll("#Achensee .mySlides");
+    }
+
     if (n > slides.length) { slideIndex = 1 }
     if (n < 1) { slideIndex = slides.length }
     for (i = 0; i < slides.length; i++) {
@@ -56,14 +67,14 @@ function showSlides(n) {
 
 function InhaltUmschalten() {
 
-    let content1 = document.getElementById("Seefeld");
-    let content2 = document.getElementById("Achensee");
-
     if (content1.style.display === "none") {
         content1.style.display = "block";
         content2.style.display = "none";
+        showSlides(slideIndex);
+
     } else {
         content1.style.display = "none";
         content2.style.display = "block";
+        showSlides(slideIndex);
     }
 }
