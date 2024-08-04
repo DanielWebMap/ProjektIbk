@@ -26,11 +26,28 @@ let controlElevation = L.control.elevation({
 }).addTo(w_map);
 controlElevation.load("Wanderungen/Seefeld.gpx");
 
+//Pulldown Menü
+
+let pulldown = document.querySelector("#pulldown"); //Styling PullDown Menu
+let inhalt_pd = ["Seefeld", "Achensee", "Test1", "Test2"];
+
+
+console.log(inhalt_pd);
+
+for (i=0; i<inhalt_pd.length; i++) {
+    let status = "";
+    if (inhalt_pd[i] == "Seefeld"){
+        status = " selected ";   //Anzeige der aktuellen Etappe
+    }
+    pulldown.innerHTML += `<option ${status} value="${inhalt_pd[i]}">${inhalt_pd[i]}</option>`;
+}
+
+
 
 //SLIDESHOW
 
-let content1 = document.getElementById("Seefeld");
-let content2 = document.getElementById("Achensee");
+let Seefeld = document.getElementById("Seefeld");
+let Achensee = document.getElementById("Achensee");
 
 
 let slideIndex = 1;
@@ -46,10 +63,10 @@ function showSlides(n) {
     let i;
     let slides;
     
-    if (content1.style.display === "block") {
+    if (Seefeld.style.display === "block") {
     slides = document.querySelectorAll("#Seefeld .mySlides"); }
 
-    else if (content2.style.display === "block") {
+    else if (Achensee.style.display === "block") {
     slides = document.querySelectorAll("#Achensee .mySlides");
     }
 
@@ -61,10 +78,30 @@ function showSlides(n) {
     slides[slideIndex - 1].style.display = "block";
 }
 
+pulldown.onchange = function (evt) {
+    
+    let abfrage = evt.target.value;
+    
+    if (abfrage == "Seefeld") {
+        Seefeld.style.display = "block";
+        Achensee.style.display = "none";
+        showSlides(slideIndex);
+    }
+
+    else if (abfrage == "Achensee") {
+        Seefeld.style.display = "none";
+        Achensee.style.display = "block";
+        showSlides(slideIndex);
+    }
+
+    //window.location.href = url;
+}
+
+
 
 
 //FUNKTION FÜR ÄNDERUNG DES INHALTS
-
+/*
 function InhaltUmschalten() {
 
     if (content1.style.display === "none") {
@@ -77,26 +114,4 @@ function InhaltUmschalten() {
         content2.style.display = "block";
         showSlides(slideIndex);
     }
-}
-
-
-let pulldown = document.querySelector("#pulldown"); //Styling PullDown Menu
-let inhalt_pd = ["Seefeld", "Achensee", "Test1", "Test2"];
-
-/*
-for (i=0; i<inhalt_pd.length; i++) {
-    let status = "";
-    if (inhalt_pd[i] == "Seefeld"){
-        status = " selected ";   //Anzeige der aktuellen Etappe
-    }
-    
-}
-*/
-pulldown.innerHTML += "Hallo"
-
-
-pulldown.onchange = function (evt) {
-    let abfrage = evt.target.value;
-    let url = `https://${username}.github.io/biketirol`;
-    window.location.href = url;
-}
+}*/
