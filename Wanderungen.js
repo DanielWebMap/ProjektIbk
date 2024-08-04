@@ -1,3 +1,14 @@
+//WANDERUNGEN Leitfaden
+
+let inhalt_pd = ["Seefeld", "Achensee", "Kranebitten"]; //Array um Bezeichnung für die Wanderungen festzulegen
+
+let Seefeld = document.getElementById("Seefeld");  //Abfrage der Div-Elemente für die entsprechende Slideshow (Werden in Variable gespeichert)
+let Achensee = document.getElementById("Achensee");
+let Kranebitten = document.getElementById("Kranebitten");
+
+/*Innerhalb ShowSlides eine weitere ELSE IF-Anweisung
+Innerhalb pulldownOnCHange eine weitere ELSE IF-Anweisung*/
+
 
 //Erstellung der Leaflet Karte
 
@@ -24,13 +35,11 @@ let controlElevation = L.control.elevation({
     height: 300,
     theme: "ibk_hiking",
 }).addTo(w_map);
-controlElevation.load("Wanderungen/Seefeld.gpx");
+controlElevation.load("Wanderungen/Seefeld.gpx"); //Erste Wanderung die bei Start der Seite angezeigt wird
 
 //Pulldown Menü
 
 let pulldown = document.querySelector("#pulldown"); //Styling PullDown Menu
-let inhalt_pd = ["Seefeld", "Achensee", "Test1", "Test2"];
-
 
 console.log(inhalt_pd);
 
@@ -45,10 +54,6 @@ for (i=0; i<inhalt_pd.length; i++) {
 
 
 //SLIDESHOW
-
-let Seefeld = document.getElementById("Seefeld");
-let Achensee = document.getElementById("Achensee");
-
 
 let slideIndex = 1;
 showSlides(slideIndex);
@@ -70,6 +75,10 @@ function showSlides(n) {
     slides = document.querySelectorAll("#Achensee .mySlides");
     }
 
+    else if (Kranebitten.style.display === "block") {
+    slides = document.querySelectorAll("#Kranebitten .mySlides");
+    }
+
     if (n > slides.length) { slideIndex = 1 }
     if (n < 1) { slideIndex = slides.length }
     for (i = 0; i < slides.length; i++) {
@@ -78,40 +87,41 @@ function showSlides(n) {
     slides[slideIndex - 1].style.display = "block";
 }
 
+
+//Funkion welche regelt, wass bei KLick auf das Pulldown Menü passiert
+
 pulldown.onchange = function (evt) {
-    
     let abfrage = evt.target.value;
+    var elements = document.querySelectorAll('.Bilder');
     
+    elements.forEach(function(element) {
+        if (window.getComputedStyle(element).display === 'block') {
+            element.style.display = "none";
+        }  });
+    
+
     if (abfrage == "Seefeld") {
         Seefeld.style.display = "block";
-        Achensee.style.display = "none";
         showSlides(slideIndex);
+        controlElevation.clear();
+        controlElevation.load("Wanderungen/Seefeld.gpx");
     }
 
     else if (abfrage == "Achensee") {
-        Seefeld.style.display = "none";
         Achensee.style.display = "block";
         showSlides(slideIndex);
+        controlElevation.clear();
+        controlElevation.load("Wanderungen/Achensee.gpx");
     }
 
-    //window.location.href = url;
+    else if (abfrage == "Kranebitten") {
+        Kranebitten.style.display = "block";  //Umstellen
+        showSlides(slideIndex);
+        controlElevation.clear();
+        controlElevation.load("Wanderungen/Kranebitten.gpx");
+    }
+
 }
 
 
 
-
-//FUNKTION FÜR ÄNDERUNG DES INHALTS
-/*
-function InhaltUmschalten() {
-
-    if (content1.style.display === "none") {
-        content1.style.display = "block";
-        content2.style.display = "none";
-        showSlides(slideIndex);
-
-    } else {
-        content1.style.display = "none";
-        content2.style.display = "block";
-        showSlides(slideIndex);
-    }
-}*/

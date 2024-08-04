@@ -179,6 +179,12 @@ img {
 
 
 #pulldown {
-    margin-bottom: 0.3em
+    margin-bottom: 0.3em;
+    background-color: #395A7F;
+    border-radius: 6px 6px 6px 6px;
+    padding: 1em;
+    border: none;
+    color: white;
+    font-size: 0.8vw;
 }
 
