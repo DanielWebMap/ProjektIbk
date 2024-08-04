@@ -78,3 +78,25 @@ function InhaltUmschalten() {
         showSlides(slideIndex);
     }
 }
+
+
+let pulldown = document.querySelector("#pulldown"); //Styling PullDown Menu
+let inhalt_pd = ["Seefeld", "Achensee", "Test1", "Test2"];
+
+/*
+for (i=0; i<inhalt_pd.length; i++) {
+    let status = "";
+    if (inhalt_pd[i] == "Seefeld"){
+        status = " selected ";   //Anzeige der aktuellen Etappe
+    }
+    
+}
+*/
+pulldown.innerHTML += "Hallo"
+
+
+pulldown.onchange = function (evt) {
+    let abfrage = evt.target.value;
+    let url = `https://${username}.github.io/biketirol`;
+    window.location.href = url;
+}
