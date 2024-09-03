@@ -1,6 +1,6 @@
 //WANDERUNGEN Leitfaden
 
-let inhalt_pd = ["Seefeld", "Achensee", "Kranebitten"]; //Array um Bezeichnung für die Wanderungen festzulegen
+let inhalt_pd = ["Von Innsbruck nach Seefeld", "Einmal um den Achensee", "Runde bei Kranebitten"]; //Array um Bezeichnung für die Wanderungen festzulegen
 
 let Seefeld = document.getElementById("Seefeld");  //Abfrage der Div-Elemente für die entsprechende Slideshow (Werden in Variable gespeichert)
 let Achensee = document.getElementById("Achensee");
@@ -93,29 +93,40 @@ function showSlides(n) {
 pulldown.onchange = function (evt) {
     let abfrage = evt.target.value;
     var elements = document.querySelectorAll('.Bilder');
+    var informationen = document.querySelectorAll('.informationen');
     
     elements.forEach(function(element) {
         if (window.getComputedStyle(element).display === 'block') {
             element.style.display = "none";
-        }  });
-    
+        } 
+     });
 
-    if (abfrage == "Seefeld") {
+     informationen.forEach(function(element) {
+        if (window.getComputedStyle(element).display === 'flex') {
+            element.style.display = "none";
+        } 
+     });   
+    
+    if (abfrage == "Von Innsbruck nach Seefeld") {
         Seefeld.style.display = "block";
+        seefeld_daten.style.display = "flex";
         showSlides(slideIndex);
         controlElevation.clear();
         controlElevation.load("Wanderungen/Seefeld.gpx");
+
     }
 
-    else if (abfrage == "Achensee") {
+    else if (abfrage == "Einmal um den Achensee") {
         Achensee.style.display = "block";
+        achensee_daten.style.display = "flex";
         showSlides(slideIndex);
         controlElevation.clear();
         controlElevation.load("Wanderungen/Achensee.gpx");
     }
 
-    else if (abfrage == "Kranebitten") {
+    else if (abfrage == "Runde bei Kranebitten") {
         Kranebitten.style.display = "block";  //Umstellen
+        kranebitten_daten.style.display = "flex";
         showSlides(slideIndex);
         controlElevation.clear();
         controlElevation.load("Wanderungen/Kranebitten.gpx");

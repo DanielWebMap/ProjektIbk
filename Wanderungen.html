@@ -62,9 +62,37 @@
 <body>
     <main>
         <div id="w_allg">
-            <h2>Wanderungen</h2>
-            <select id="pulldown"></select>
 
+            <select id="pulldown"></select>
+            <div id="seefeld_daten" class="informationen" style="display: flex">
+                <div class="item">Tourdaten:</div>
+                <div class="item"><i class="fa-solid fa-route"></i> 22.09 km </div>
+                <div class="item"><i class="fa-solid fa-circle-up"></i> 740m </div>
+                <div class="item"><i class="fa-solid fa-circle-down"></i> 140m </div>
+                <div class="item"><i class="fa-solid fa-mountain"></i> 1.190 m. ü. NHN </div>
+                <div>Level: <div class="color-circle-red"></div></div>
+                <div class="item">Ranking: <i class="fa-solid fa-2"></i> </div>
+            </div>
+
+            <div id="achensee_daten" class="informationen" style="display: none;">
+                <div class="item">Tourdaten:</div>
+                <div class="item"><i class="fa-solid fa-route"></i> 24.01 km </div>
+                <div class="item"><i class="fa-solid fa-circle-up"></i> 180m </div>
+                <div class="item"><i class="fa-solid fa-circle-down"></i> 180m </div>
+                <div class="item"><i class="fa-solid fa-mountain"></i> 970 m. ü. NHN </div>
+                <div>Level: <div class="color-circle-red"></div></div>
+                <div class="item">Ranking: <i class="fa-solid fa-3"></i>+ </div>
+            </div>
+
+            <div id="kranebitten_daten" class="informationen" style="display: none;">
+                <div class="item">Tourdaten:</div>
+                <div class="item"><i class="fa-solid fa-route"></i> 12.84 km </div>
+                <div class="item"><i class="fa-solid fa-circle-up"></i> 820m </div>
+                <div class="item"><i class="fa-solid fa-circle-down"></i> 820m </div>
+                <div class="item"><i class="fa-solid fa-mountain"></i> 1.190 m. ü. NHN </div>
+                <div>Level: <div class="color-circle-black"></div></div>
+                <div class="item">Ranking: <i class="fa-solid fa-2"></i>+ </div>
+            </div>
         </div>
 
         <div id="w_spez">
@@ -120,9 +148,36 @@
                     <a class="next" onclick="plusSlides(1)">&#10095;</a>
                     <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
                 </div>
+
+                <div class="Text">
+                    <div>
+                        <h2><i class="fa-solid fa-person-hiking"></i> Von Innsbruck nach Seefeld</h2>
+                        <hr style="color:white;">
+                    </div>
+                    <p>
+                        Eine wirklich schöne aber auch sehr lange Wanderung. Der Erste Abschnitt ist relatv einseitig
+                        und
+                        verläuft im Inntal auf einem langen Forstweg. Erst ab der Ehnachklamm wird es richtig spannend.
+                        Von
+                        dort an läuft man auf einem tollen Weg durch den Wald und durch zwei verschiedene Klammen. Auf
+                        dem
+                        Weg kreuzt man immer
+                        wieder die Zugstrecke Innsbruck-Seefeld, welche durch eine wirklich schöne Kulisse verläuft.
+                        Insgesamt eine klare Empfehlung - Wem jedoch die Challenge "Von Innsbruck nach Seefeld laufen"
+                        nicht
+                        wichtig ist, kann sich den ersten Abschnitt bis zur Ehnbachklamm auch sparen.
+
+                        <br><br>
+                        <i class="fa-solid fa-user-group"></i> Unterwegs mit Merit, Michelle, Niklas und René <br>
+                        <i class="fa-solid fa-certificate"></i> Ranking: 2 (gut)
+                    </p>
+                </div>
+
             </div>
 
-              <!-- Achensee -->
+
+
+            <!-- Achensee -->
 
             <div class="Bilder" id="Achensee" style="display: none;">
                 <div class="slideshow-container">
@@ -171,13 +226,37 @@
                     <a class="next" onclick="plusSlides(1)">&#10095;</a>
                     <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
                 </div>
+
+                <div class="Text">
+                    <div>
+                        <h2><i class="fa-solid fa-person-hiking"></i> Einmal um den Achensee</h2>
+                        <hr style="color:white;">
+                    </div>
+                    <p>
+                        Diese Tour ist wirklich empfehlenswert, vor Allem bei gutem Wetter. Der Achensee ist ein
+                        traumhafter
+                        türkisblauer See, welcher von hohen Bergen umgeben ist. Der Weg am linken Seeufer (Blickrichtung
+                        Norden) ist zwar sehr beliebt, aber auch sehr schön. Über einen kleinen Weg läuft man direkt am
+                        See entlang und hat immer traumhafte Ausblicke. Zurück läuft man dann über eine Straße -
+                        dies zieht sich leider etwas. Hier könnt man auch optional ein Boot nehmen. Insgesamt aber eine
+                        wirklich schöne und lange Wanderung, welche jedoch längst kein Geheimtipp mehr ist. Go for it!
+
+                        <br><br>
+                        <i class="fa-solid fa-user-group"></i> Unterwegs mit Merit & Michelle <br>
+                        <i class="fa-solid fa-certificate"></i> Ranking: 3+ (befriedigend)
+                    </p>
+                </div>
+
             </div>
 
-              <!-- Runde Kranebitten -->
 
-              <div class="Bilder" id="Kranebitten" style="display: none;">
+
+            <!-- Runde Kranebitten -->
+
+            <div class="Bilder" id="Kranebitten" style="display: none;">
                 <div class="slideshow-container">
                     <div class="mySlides fade">
+
                         <div class="image-container">
                             <img src="data/KB_1.JPEG" style="width:100%">
                         </div>
@@ -217,17 +296,44 @@
                     <a class="next" onclick="plusSlides(1)">&#10095;</a>
                     <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
                 </div>
+            
+
+            <div class="Text">
+                <div>
+                    <h2><i class="fa-solid fa-person-hiking"></i> Runde bei Kranebitten</h2>
+                    <hr style="color:white;">
+                </div>
+                <p>
+                    Anspruchsvolle Rundwanderung mit schöner Aussicht über Innsbruck, den Flughafen und das Inntal. Am
+                    Anfang macht man auf einem kleinen Weg ordentlich Höhenmeter. Anschließend folgt ein etwas
+                    ansruchsvollerer Track mit Absturzgefahr, hier sollte man sehr konzentriert laufen. Es ist jedoch
+                    eine
+                    Sicherung vorhanden. Dieser Höhenweg ist zugleich der schönste und abenteuerlichste Abschnitt auf
+                    der Tour. Langsam umrundet man die Kranebittener Klamm und läuft sowohl durch Wälder als
+                    auch durch felsige Abschnitte. Am Ende läuft man wieder zurück zum Bahnhof Kranebitten. 
+
+                    <br><br>
+                    <i class="fa-solid fa-user-group"></i> Unterwegs mit René & Niklas <br>
+                    <i class="fa-solid fa-certificate"></i> Ranking: 2+ (gut)
+                </p>
             </div>
-
-
 
         </div>
 
 
 
+
+
+        </div>
+
     </main>
     <footer>
-        @Daniel Schönung
+        <div class="Impressum">
+        <b>Impressum:</b><br>
+        Daniel Schönung <br>
+        Mariahilfstraße 46 <br>
+        6020 Innsbruck 
+        </div>
     </footer>
 </body>
 

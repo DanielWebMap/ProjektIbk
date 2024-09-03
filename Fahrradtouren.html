@@ -26,11 +26,11 @@
     <!-- Leaflet FullScreen -->
     <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
     <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'
-        rel='stylesheet' />
+        rel='stylesheet'/>
 
     <!-- eigene Stile und Hauptskript -->
     <link rel="stylesheet" href="main.css">
-    <script defer src="main.js"></script>
+    <script defer src="Fahrradtouren.js"></script>
     
 
     <!-- leaflet-elevation -->
@@ -58,7 +58,92 @@
     </div>
 </header>
 <body>
-    <main>  
-    </main>  
+    <main>
+        <div id="w_allg">
+            
+            <select id="pulldown"></select>
+            <div id="IT_daten" class="informationen" style="display: flex">
+                <div class="item">Tourdaten:</div>
+                <div class="item"><i class="fa-solid fa-route"></i> 60.60 km </div>
+                <div class="item"><i class="fa-solid fa-circle-up"></i> 140 m </div>
+                <div class="item"><i class="fa-solid fa-circle-down"></i> 150 m </div>
+                <div class="item"><i class="fa-solid fa-mountain"></i> 640 m. ü. NHN </div>
+                <div>Level: <div class="color-circle-blue"></div></div>
+                <div class="item">Ranking: <i class="fa-solid fa-3"></i> </div>
+            </div>
+
+        </div>
+
+        <div id="w_spez">
+            <div id="w_map"></div>
+            <div id="profile"></div> 
+
+            <!-- Innsbruck-Telfs -->
+ 
+            <div class="Bilder" id="IT" style="display: block;">
+                <div class="slideshow-container">
+                    <div class="mySlides fade">
+                        <div class="image-container">
+                            <img src="data/IT_1.JPEG" style="width:100%">
+                        </div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="image-container">
+                            <img src="data/IT_2.JPEG" style="width:100%">
+                        </div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="image-container">
+                            <img src="data/IT_3.JPEG" style="width:100%">
+                        </div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="image-container">
+                            <img src="data/IT_4.JPEG" style="width:100%">
+                        </div>
+                    </div>
+
+
+
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                </div>
+
+                <div class="Text">
+                    <div>
+                        <h2><i class="fa-solid fa-bicycle"></i> Innsbruck - Telfs</h2>
+                        <hr style="color:white;">
+                    </div>
+                    <p>
+                        Schöne Fahrradstrecke entlang des Inns durch das Inntal. Eignet sich ideal für eine Nachmittagstour
+                        oder als sportliches Workout mit Tempo. Meist fährt man auf gut ausgebauten Fahrradwegen oder kleinen Straßen. Die Tour hat zwar wenig Höhenmeter, der Gegenwind kann jedoch sehr anstregend werden.
+                        Untwegs hat man immer wieder schöne Plätze zum Pause machen. Da der Weg parallel zur Zugstrecke verläuft, hat man jederzeit die Möglichkeit, die Tour abzukürzen.
+
+                        <br><br>
+                        <i class="fa-solid fa-user-group"></i> Alleine Unterwegs <br>
+                        <i class="fa-solid fa-certificate"></i> Ranking: 3 (befriedigend)
+                    </p>
+                </div>
+
+            </div>
+
+            
+
+        </div>
+
+
+
+    </main>
+    <footer>
+        <div class="Impressum">
+        <b>Impressum:</b><br>
+        Daniel Schönung <br>
+        Mariahilfstraße 46 <br>
+        6020 Innsbruck 
+        </div>
+    </footer>
 </body>
 </html>
