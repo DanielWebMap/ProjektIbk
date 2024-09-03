@@ -19,9 +19,18 @@ header {
 
 
 h1 {
-    grid-column: 1;
     font-size: 2.3vw;
 }
+
+.Logo {
+    grid-column: 1;
+    width: 30%;
+}
+
+.Logo2 {
+    width: 20%;
+}
+
 
 h2 {
     font-size: 2vw;
@@ -315,6 +324,21 @@ img {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+.Bild-Overlay-Titel {
+    position: absolute;
+    top: 10vh;
+    right: 1.5%;
+    text-shadow: 1px 1px 2px black;
+    color: white;
+    font-family: "Barlow Semi Condensed";
+    size: 50vw;
+}
+
+.Bild-Overlay-Titel > h1 {
+    font-size: 4vw;
+}
+
+
 footer {
     background-color:rgba(71, 92, 109, 0.589);
     color: white;
@@ -331,3 +355,11 @@ footer {
     float: right;
     padding: 0.8vw;
 }
+
+
+
+.barlow-semi-condensed-bold {
+    font-family: "Barlow Semi Condensed", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+  }
