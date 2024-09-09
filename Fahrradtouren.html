@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,60 +27,76 @@
     <!-- Leaflet FullScreen -->
     <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
     <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'
-        rel='stylesheet'/>
+        rel='stylesheet' />
 
     <!-- eigene Stile und Hauptskript -->
     <link rel="stylesheet" href="main.css">
     <script defer src="Fahrradtouren.js"></script>
-    
+
 
     <!-- leaflet-elevation -->
     <link rel="stylesheet" href="https://unpkg.com/@raruto/leaflet-elevation/dist/leaflet-elevation.css" />
     <script src="https://unpkg.com/@raruto/leaflet-elevation/dist/leaflet-elevation.js"></script>
 
-      <!-- Minimap -->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.css"
-      integrity="sha512-efbAfGnrnjA+hLwOLu91W034fBGPsMwZMVCTwLUI2PDX/m7rOiuhYZ+D2mZ8rKcpC/I/7pdgoL8T4eYvMHNoQg=="
-      crossorigin="anonymous" referrerpolicy="no-referrer" />
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.js"
-      integrity="sha512-ceQPs2CHke3gSINLt/JV37W1rfJOM64yuH999hnRhTP7tNtcSBp5hlTKhn8CEIhsFweSBrZMPVotAKjoyxGWNg=="
-      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Minimap -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.css"
+        integrity="sha512-efbAfGnrnjA+hLwOLu91W034fBGPsMwZMVCTwLUI2PDX/m7rOiuhYZ+D2mZ8rKcpC/I/7pdgoL8T4eYvMHNoQg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.js"
+        integrity="sha512-ceQPs2CHke3gSINLt/JV37W1rfJOM64yuH999hnRhTP7tNtcSBp5hlTKhn8CEIhsFweSBrZMPVotAKjoyxGWNg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <header>
     <div id="Navigation">
         <div class="Logo"><img src="data/Logo.png" alt="Logo"></div>
-            <ul>
-                <li><a href="index.html">Startseite</a></li>
-                <li><a href="Wanderungen.html">Wanderungen</a></li>
-                <li><a href="Fahrradtouren.html">Fahrradtouren</a></li>
-                <li><a href="Spot_Highlights.html">Spot-Highlights</a></li>
-                <li><a href="Daniel.html">Über Mich</li></a>
-            </ul>
+        <ul>
+            <li><a href="index.html">Startseite</a></li>
+            <li><a href="Wanderungen.html">Wanderungen</a></li>
+            <li><a href="Fahrradtouren.html">Fahrradtouren</a></li>
+            <li><a href="Spot_Highlights.html">Spot-Highlights</a></li>
+            <li><a href="Daniel.html">Über Mich</li></a>
+        </ul>
     </div>
 </header>
+
 <body>
     <main>
         <div id="w_allg">
-            
+
             <select id="pulldown"></select>
+
+             <!-- Innsbruck-Telfs -->
             <div id="IT_daten" class="informationen" style="display: flex">
                 <div class="item">Tourdaten:</div>
                 <div class="item"><i class="fa-solid fa-route"></i> 60.60 km </div>
                 <div class="item"><i class="fa-solid fa-circle-up"></i> 140 m </div>
                 <div class="item"><i class="fa-solid fa-circle-down"></i> 150 m </div>
                 <div class="item"><i class="fa-solid fa-mountain"></i> 640 m. ü. NHN </div>
-                <div>Level: <div class="color-circle-blue"></div></div>
+                <div>Level: <div class="color-circle-blue"></div>
+                </div>
                 <div class="item">Ranking: <i class="fa-solid fa-3"></i> </div>
+            </div>
+
+            <!-- Pfaffenhofen-Innsbruck -->
+            <div id="PI_daten" class="informationen" style="display: none">
+                <div class="item">Tourdaten:</div>
+                <div class="item"><i class="fa-solid fa-route"></i> 216 km </div>
+                <div class="item"><i class="fa-solid fa-circle-up"></i> 1.630 m </div>
+                <div class="item"><i class="fa-solid fa-circle-down"></i> 1.480 m </div>
+                <div class="item"><i class="fa-solid fa-mountain"></i> 960 m. ü. NHN </div>
+                <div>Level: <div class="color-circle-black"></div>
+                </div>
+                <div class="item">Ranking: <i class="fa-solid fa-1"></i>-</div>
             </div>
 
         </div>
 
         <div id="w_spez">
             <div id="w_map"></div>
-            <div id="profile"></div> 
+            <div id="profile"></div>
 
             <!-- Innsbruck-Telfs -->
- 
+
             <div class="Bilder" id="IT" style="display: block;">
                 <div class="slideshow-container">
                     <div class="mySlides fade">
@@ -118,9 +135,13 @@
                         <hr style="color:white;">
                     </div>
                     <p>
-                        Schöne Fahrradstrecke entlang des Inns durch das Inntal. Eignet sich ideal für eine Nachmittagstour
-                        oder als sportliches Workout mit Tempo. Meist fährt man auf gut ausgebauten Fahrradwegen oder kleinen Straßen. Die Tour hat zwar wenig Höhenmeter, der Gegenwind kann jedoch sehr anstregend werden.
-                        Untwegs hat man immer wieder schöne Plätze zum Pause machen. Da der Weg parallel zur Zugstrecke verläuft, hat man jederzeit die Möglichkeit, die Tour abzukürzen.
+                        Schöne Fahrradstrecke entlang des Inns durch das Inntal. Eignet sich ideal für eine
+                        Nachmittagstour
+                        oder als sportliches Workout mit Tempo. Meist fährt man auf gut ausgebauten Fahrradwegen oder
+                        kleinen Straßen. Die Tour hat zwar wenig Höhenmeter, der Gegenwind kann jedoch sehr anstregend
+                        werden.
+                        Untwegs hat man immer wieder schöne Plätze zum Pause machen. Da der Weg parallel zur Zugstrecke
+                        verläuft, hat man jederzeit die Möglichkeit, die Tour abzukürzen.
 
                         <br><br>
                         <i class="fa-solid fa-user-group"></i> Alleine Unterwegs <br>
@@ -130,7 +151,104 @@
 
             </div>
 
-            
+
+            <!-- PFAFFENHOFEN - INNSBRUCK -->
+
+            <div class="Bilder" id="PI" style="display: none;">
+                <div class="slideshow-container">
+                    <div class="mySlides fade">
+                        <div class="image-container">
+                            <img src="data/PI_1.JPEG" style="width:100%">
+                        </div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="image-container">
+                            <img src="data/PI_2.JPEG" style="width:100%">
+                        </div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="image-container">
+                            <img src="data/PI_3.JPEG" style="width:100%">
+                        </div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="image-container">
+                            <img src="data/PI_4.JPEG" style="width:100%">
+                        </div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="image-container">
+                            <img src="data/PI_5.JPEG" style="width:100%">
+                        </div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="image-container">
+                            <img src="data/PI_6.JPEG" style="width:100%">
+                        </div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="image-container">
+                            <img src="data/PI_7.JPEG" style="width:100%">
+                        </div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="image-container">
+                            <img src="data/PI_8.JPEG" style="width:100%">
+                        </div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="image-container">
+                            <img src="data/PI_9.JPEG" style="width:100%">
+                        </div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="image-container">
+                            <img src="data/PI_10.JPEG" style="width:100%">
+                        </div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="image-container">
+                            <img src="data/PI_11.JPEG" style="width:100%">
+                        </div>
+                    </div>
+
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                </div>
+
+                <div class="Text">
+                    <div>
+                        <h2><i class="fa-solid fa-bicycle"></i> Pfaffenhofen-Innsbruck </h2>
+                        <hr style="color:white;">
+                    </div>
+                    <p>
+                        Ein Highlight in diesem Sommer. Insgesamt eine wirklich tolle Fahrradstrecke, insbesondere der
+                        Abschnitt von München bis zum Achensee. Meist fährt man auf sehr schönen Fahrradwegen oder
+                        Forstwegen. Am meisten hat mich die Vielfalt auf dieser Strecke überzeugt - man fährt durch
+                        Städte, über Dörfer und Bauernhöfe, Ackerland, Wälder, Berge sowie an kristallklaren
+                        Bergseen vorbei, welche zum baden einladen. Ab München geht es konstant (wenn auch nur leicht) bis zum Achensee bergauf,
+                        anschließend folgt eine steile kurze Strecke bergab ins Inntal. Die 3-Tages-Tour laß sich gut sowohl von Kraft & Ausdauer bewältigen.
+                        Das Gefühl vom Flachland in die Berge zu fahren ist zudem sehr besonders. Ich kann die Strecke wirklich jedem weiterempfehlen!
+
+                        <br><br>
+                        <i class="fa-solid fa-user-group"></i> Alleine Unterwegs (3-Tages-Tour) <br>
+                        <i class="fa-solid fa-certificate"></i> Ranking: 1- (sehr gut)
+                    </p>
+                </div>
+
+            </div>
+
+
 
         </div>
 
@@ -139,11 +257,12 @@
     </main>
     <footer>
         <div class="Impressum">
-        <b>Impressum:</b><br>
-        Daniel Schönung <br>
-        Mariahilfstraße 46 <br>
-        6020 Innsbruck 
+            <b>Impressum:</b><br>
+            Daniel Schönung <br>
+            Mariahilfstraße 46 <br>
+            6020 Innsbruck
         </div>
     </footer>
 </body>
+
 </html>

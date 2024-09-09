@@ -1,8 +1,9 @@
 //FAHRRADTOURENLeitfaden
 
-let inhalt_pd = ["Innsbruck-Telfs", "", ""]; //Array um Bezeichnung für die Wanderungen festzulegen
+let inhalt_pd = ["Innsbruck-Telfs", "Pfaffenhofen-Innsbruck"]; //Array um Bezeichnung für die Wanderungen festzulegen
 
-let IT = document.getElementById("IT");  //Abfrage der Div-Elemente für die entsprechende Slideshow (Werden in Variable gespeichert)
+let IT = document.getElementById("IT");
+let PI = document.getElementById("PI");  //Abfrage der Div-Elemente für die entsprechende Slideshow (Werden in Variable gespeichert)
 
 
 /*Innerhalb ShowSlides eine weitere ELSE IF-Anweisung
@@ -70,12 +71,8 @@ function showSlides(n) {
     if (IT.style.display === "block") {
     slides = document.querySelectorAll("#IT .mySlides"); }
 
-    else if (Achensee.style.display === "block") {
-    slides = document.querySelectorAll("#Achensee .mySlides");
-    }
-
-    else if (Kranebitten.style.display === "block") {
-    slides = document.querySelectorAll("#Kranebitten .mySlides");
+    else if (PI.style.display === "block") {
+    slides = document.querySelectorAll("#PI .mySlides");
     }
 
     if (n > slides.length) { slideIndex = 1 }
@@ -117,20 +114,12 @@ pulldown.onchange = function (evt) {
 
     }
 
-    else if (abfrage == "Einmal um den Achensee") {
-        Achensee.style.display = "block";
-        achensee_daten.style.display = "flex";
+    else if (abfrage == "Pfaffenhofen-Innsbruck") {
+        PI.style.display = "block";
+        PI_daten.style.display = "flex";
         showSlides(slideIndex);
         controlElevation.clear();
-        controlElevation.load("Wanderungen/Achensee.gpx");
-    }
-
-    else if (abfrage == "Runde bei Kranebitten") {
-        Kranebitten.style.display = "block";  //Umstellen
-        kranebitten_daten.style.display = "flex";
-        showSlides(slideIndex);
-        controlElevation.clear();
-        controlElevation.load("Wanderungen/Kranebitten.gpx");
+        controlElevation.load("Fahrradtouren/PAF_Innsbruck.gpx");
     }
 
 }
