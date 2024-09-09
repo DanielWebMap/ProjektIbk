@@ -363,3 +363,13 @@ footer {
     font-weight: 700;
     font-style: normal;
   }
+
+
+/*SPOT-HIGHLIGHTS*/
+
+#map_spots {
+    height: 85vh;
+    margin: 0.5%;
+    border: 3px solid #395A7F;
+    border-radius: 6px 6px 6px 6px;
+}

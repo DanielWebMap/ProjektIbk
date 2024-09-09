@@ -12,11 +12,14 @@ Innerhalb pulldownOnCHange eine weitere ELSE IF-Anweisung*/
 
 //Erstellung der Leaflet Karte
 
-let w_map = L.map("w_map").setView([47.2683, 11.3933], 13);
+let w_map = L.map("w_map", {fullscreenControl: true}).setView([47.2683, 11.3933], 13);
 
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-}).addTo(w_map);
+L.tileLayer('https://tiles.stadiamaps.com/tiles/outdoors/{z}/{x}/{y}{r}.{ext}', {
+        minZoom: 0,
+        maxZoom: 20,
+        attribution: '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        ext: 'png'
+    }).addTo(w_map);
 
 
 
