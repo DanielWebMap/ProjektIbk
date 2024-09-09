@@ -344,18 +344,10 @@ footer {
     color: white;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     padding: 0.5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
-
-
-.Impressum {
-    text-align: left;
-}
-
-.Kontakt {
-    float: right;
-    padding: 0.8vw;
-}
-
 
 
 .barlow-semi-condensed-bold {
