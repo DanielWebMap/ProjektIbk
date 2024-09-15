@@ -393,5 +393,20 @@ footer {
 .popup_restaurant .leaflet-popup-content-wrapper, 
 .popup_restaurant .leaflet-popup-tip{
     background: #E55D19;
-    color: white;
+    color: rgb(255, 255, 255);
+}
+
+.popup_bar a,
+.popup_restaurant a {
+    color: rgb(231, 243, 255);
+}
+
+.popup_bar a:hover, 
+.popup_restaurant a:hover {
+    color: rgb(0, 51, 82);
+}
+
+.popup_cafe a,
+.popup_restaurant a {
+    color: rgb(231, 243, 255);
 }
