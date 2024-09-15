@@ -377,3 +377,21 @@ footer {
     border: 3px solid #395A7F;
     border-radius: 6px 6px 6px 6px;
 }
+
+.popup_cafe .leaflet-popup-content-wrapper, 
+.popup_cafe .leaflet-popup-tip{
+    background: #F2D10E;
+    color: rgb(51, 51, 51);
+}
+
+.popup_bar .leaflet-popup-content-wrapper, 
+.popup_bar .leaflet-popup-tip{
+    background: #8c4eb8;
+    color: rgb(255, 255, 255);
+}
+
+.popup_restaurant .leaflet-popup-content-wrapper, 
+.popup_restaurant .leaflet-popup-tip{
+    background: #E55D19;
+    color: white;
+}
