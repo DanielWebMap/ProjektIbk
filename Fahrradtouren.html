@@ -45,6 +45,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.js"
         integrity="sha512-ceQPs2CHke3gSINLt/JV37W1rfJOM64yuH999hnRhTP7tNtcSBp5hlTKhn8CEIhsFweSBrZMPVotAKjoyxGWNg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
 </head>
 <header>
     <div id="Navigation">
@@ -66,7 +68,7 @@
             <select id="pulldown"></select>
 
              <!-- Innsbruck-Telfs -->
-            <div id="IT_daten" class="informationen" style="display: flex">
+            <div id="IT_daten" class="informationen" style="display: none">
                 <div class="item">Tourdaten:</div>
                 <div class="item"><i class="fa-solid fa-route"></i> 60.60 km </div>
                 <div class="item"><i class="fa-solid fa-circle-up"></i> 140 m </div>
@@ -80,7 +82,7 @@
             </div>
 
             <!-- Pfaffenhofen-Innsbruck -->
-            <div id="PI_daten" class="informationen" style="display: none">
+            <div id="PI_daten" class="informationen" style="display: flex">
                 <div class="item">Tourdaten:</div>
                 <div class="item"><i class="fa-solid fa-route"></i> 216 km </div>
                 <div class="item"><i class="fa-solid fa-circle-up"></i> 1.630 m </div>
@@ -100,7 +102,7 @@
 
             <!-- Innsbruck-Telfs -->
 
-            <div class="Bilder" id="IT" style="display: block;">
+            <div class="Bilder" id="IT" style="display: none;">
                 <div class="slideshow-container">
                     <div class="mySlides fade">
                         <div class="image-container">
@@ -157,7 +159,7 @@
 
             <!-- PFAFFENHOFEN - INNSBRUCK -->
 
-            <div class="Bilder" id="PI" style="display: none;">
+            <div class="Bilder" id="PI" style="display: block;">
                 <div class="slideshow-container">
                     <div class="mySlides fade">
                         <div class="image-container">

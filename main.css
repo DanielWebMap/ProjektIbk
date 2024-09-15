@@ -87,6 +87,11 @@ main {
     border: 2px solid #395A7F;
 }
 
+.Popup_map_w .leaflet-popup-content-wrapper, 
+.Popup_map_w .leaflet-popup-tip{
+    background: #fabd71;
+}
+
 /*SLIDESHOW*/
 
 
@@ -184,7 +189,6 @@ img {
 
 #profile {
     margin-top: 0.3em;
-    border: 1px solid gray;
     fill: black;
     width: 100%;
     grid-column: 1;
@@ -195,13 +199,20 @@ img {
 .ibk_hiking,
 .ibk_bike {
     --ele-bg: white;
-    --ele-axis: #566B13;
+    --ele-axis: #000000;
     --ele-area: #fabd71;
     --ele-grid: #CCC;
-    --ele-brush: rgba(99, 126, 11, 0.4);
+    --ele-brush: rgb(255, 255, 255);
     --ele-poly: blue;
-    --ele-line: rgb(25, 0, 255);
+    --ele-line: rgb(0, 0, 0);
     --ele-circle: white;
+}
+
+.elevation-summary {
+    background-color: white;
+    text-align: center;
+    padding: 5px;
+    margin: 0 !important;
 }
 
 .elevation-expanded {
@@ -229,6 +240,7 @@ img {
     grid-column: 1;
     width: 90%;
 }
+
 
 .informationen {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;

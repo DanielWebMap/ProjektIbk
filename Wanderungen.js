@@ -88,6 +88,25 @@ function showSlides(n) {
 }
 
 
+//MARKER DEFINITIONEN
+
+var markerGroup = L.layerGroup().addTo(w_map) //Marker Group für Marker erstellen, um diese immer komplett entfernen zu können
+
+//Marker Definition mit Icon 
+var marker = L.icon({
+    iconUrl: 'data/marker1.png',
+    iconSize: [60, 60], // size of the icon
+    iconAnchor: [30, 55], // point of the icon which will correspond to marker's location
+    popupAnchor: [0, -45], // point from which the popup should open relative to the iconAnchor
+});
+
+//Erste Marker beim Starten der Website (In diesem Falle Pfaffenhofen-Innsbruck)
+L.marker([47.265052, 11.340374], { icon: marker }).addTo(markerGroup).bindPopup(`<b>START</b> Innsbruck <br> 47.265052 | 11.340374`, {className: 'Popup_map_w' });
+L.marker([47.328882, 11.189220], { icon: marker }).addTo(markerGroup).bindPopup(`<b>ZIEL:</b> Seefeld in Tirol <br> 47.328882 | 11.189220`, {className: 'Popup_map_w' });
+
+
+
+
 //Funkion welche regelt, wass bei KLick auf das Pulldown Menü passiert
 
 pulldown.onchange = function (evt) {
@@ -114,6 +133,9 @@ pulldown.onchange = function (evt) {
         controlElevation.clear();
         controlElevation.load("Wanderungen/Seefeld.gpx");
 
+        markerGroup.clearLayers();
+        L.marker([47.265052, 11.340374], { icon: marker }).addTo(markerGroup).bindPopup(`<b>START:</b> Innsbruck <br> 47.265052 | 11.340374`, {className: 'Popup_map_w' });
+        L.marker([47.328882, 11.189220], { icon: marker }).addTo(markerGroup).bindPopup(`<b>Ziel:</b> Seefeld in Tirol <br> 47.328882 | 11.189220`, {className: 'Popup_map_w' });
     }
 
     else if (abfrage == "Einmal um den Achensee") {
@@ -122,6 +144,9 @@ pulldown.onchange = function (evt) {
         showSlides(slideIndex);
         controlElevation.clear();
         controlElevation.load("Wanderungen/Achensee.gpx");
+
+        markerGroup.clearLayers();
+        L.marker([47.424384, 11.748980], { icon: marker }).addTo(markerGroup).bindPopup(`<b>START / ZIEL:</b> Maurach (Busstation) <br> 47.424384 | 11.748980`, {className: 'Popup_map_w' });
     }
 
     else if (abfrage == "Runde bei Kranebitten") {
@@ -130,6 +155,9 @@ pulldown.onchange = function (evt) {
         showSlides(slideIndex);
         controlElevation.clear();
         controlElevation.load("Wanderungen/Kranebitten.gpx");
+
+        markerGroup.clearLayers();
+        L.marker([47.269562, 11.328365], { icon: marker }).addTo(markerGroup).bindPopup(`<b>START / ZIEL: </b> Kranebitten Bahnhof <br> 47.269562 | 11.328365`, {className: 'Popup_map_w' });
     }
 
 }
