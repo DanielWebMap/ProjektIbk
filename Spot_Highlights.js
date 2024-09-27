@@ -48,7 +48,7 @@ var icon_cafe = L.icon({
 });
  
 //Café Momo
-L.marker([47.267207, 11.395057], {icon: icon_cafe}).bindPopup(`<h4>Café Momo</h4> <p>Gemütliches und schönes Café.<br> Man sitzt im Hinterhof, dadurch kein Lärm.</p> <a href="https://www.cafe-momo.at/">Link zur Website</a>`, {className: 'popup_cafe'}).addTo(themaLayer.gastronomie)
+L.marker([47.267207, 11.395057], {icon: icon_cafe}).bindPopup(`<h4>Café Momo</h4> <p>Gemütliches und schönes Café.<br> Man sitzt im Hinterhof, dadurch kein Lärm.</p> <a href="https://www.cafe-momo.at/" target="_blanc">Link zur Website</a>`, {className: 'popup_cafe'}).addTo(themaLayer.gastronomie)
 
 
 
@@ -62,8 +62,10 @@ var icon_bar = L.icon({
 });
 
 //Liquid Diary
-L.marker([47.266433, 11.392113], {icon: icon_bar}).bindPopup(`<h4>Liquid Diary</h4> <p>Beste Premiumbar in Innsbruck<br> Sehr guter Service, einzigartige Cocktails.</p> <a href="https://www.liquiddiary.com/">Link zur Website</a>`, {className: 'popup_bar'}).addTo(themaLayer.gastronomie)
+L.marker([47.266433, 11.392113], {icon: icon_bar}).bindPopup(`<h4>Liquid Diary</h4> <p>Beste Premiumbar in Innsbruck<br> Sehr guter Service, einzigartige Cocktails.</p> <a href="https://www.liquiddiary.com/" target="_blanc">Link zur Website</a>`, {className: 'popup_bar'}).addTo(themaLayer.gastronomie)
 
+//Wohnzimmer
+L.marker([47.265979, 11.383225], {icon: icon_bar}).bindPopup(`<h4>Wohnzimmer</h4> <p>Gemütliche Bar<br> Schönes Ambiente, ideal für Cocktails</p> <a href="https://www.wohnzimmer-bar.at/" target="_blanc">Link zur Website</a>`, {className: 'popup_bar'}).addTo(themaLayer.gastronomie)
 
 
 //RESTAURANTS
@@ -76,4 +78,4 @@ var icon_restaurant = L.icon({
 });
 
 //Grieche Akropolis
-L.marker([47.266648, 11.391015], {icon: icon_restaurant}).bindPopup(`<h4>Akropolis (Griechisch)</h4> <p>Lieblingsrestaurant in Innsbruck<br> Sehr gute & leckere Portionen, schönes Ambiente und guter Service</p> <a href="https://akropolis-innsbruck.com/">Link zur Website</a>`, {className: 'popup_restaurant'}).addTo(themaLayer.gastronomie)
+L.marker([47.266648, 11.391015], {icon: icon_restaurant}).bindPopup(`<h4>Akropolis (Griechisch)</h4><hr style="border: none; height: 1px; background-color:white;"><p>Lieblingsrestaurant in Innsbruck<br> Sehr gute & leckere Portionen, schönes Ambiente und guter Service</p> <a href="https://akropolis-innsbruck.com/" target="_blanc">Link zur Website</a>`, {className: 'popup_restaurant'}).addTo(themaLayer.gastronomie)

@@ -174,7 +174,7 @@ pulldown.onchange = function (evt) {
 
         markerGroup.clearLayers();
         L.marker([47.246534, 11.393656], { icon: marker }).addTo(markerGroup).bindPopup(`<b>START: </b> Bahnhof Innsbruck Sonnenburgerhof <br> 47.246534 | 11.393656`, {className: 'Popup_map_w' });
-        L.marker([47.252564, 11.399654], { icon: marker }).addTo(markerGroup).bindPopup(`<b>START: </b> Bahnhof Bergisel<br> 47.252564 | 11.399654`, {className: 'Popup_map_w' });
+        L.marker([47.252817, 11.399659], { icon: marker }).addTo(markerGroup).bindPopup(`<b>Ziel: </b> Bahnhof Bergisel<br> 47.252817 | 11.399659`, {className: 'Popup_map_w' });
     }
 
 }
