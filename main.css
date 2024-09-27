@@ -410,3 +410,73 @@ footer {
 .popup_restaurant a {
     color: rgb(231, 243, 255);
 }
+
+
+
+
+
+/* RESPONSIVE WEBDESIGN */
+
+@media (max-width: 400px) {
+
+body {
+    background-color: rgb(214, 232, 241);
+}
+
+#w_allg {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+#w_spez {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.Bilder {
+    order: 1;
+    margin-left: 0;
+    height: auto;
+    padding-bottom: 2%;
+}
+
+h2 {
+    font-size: 6vw;
+}
+
+.Text {
+    order: 2;
+}
+
+#w_map {
+    order: 3;
+    border: none;
+    margin-top: 0.5em;
+}
+
+#profile {
+    order: 4;
+    border: none;
+    margin-top: 0.5em;
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
