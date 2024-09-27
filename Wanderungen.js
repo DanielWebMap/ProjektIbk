@@ -1,10 +1,11 @@
 //WANDERUNGEN Leitfaden
 
-let inhalt_pd = ["Von Innsbruck nach Seefeld", "Einmal um den Achensee", "Runde bei Kranebitten"]; //Array um Bezeichnung für die Wanderungen festzulegen
+let inhalt_pd = ["Von Innsbruck nach Seefeld", "Einmal um den Achensee", "Runde bei Kranebitten", "Durch die Sillschlucht"]; //Array um Bezeichnung für die Wanderungen festzulegen
 
 let Seefeld = document.getElementById("Seefeld");  //Abfrage der Div-Elemente für die entsprechende Slideshow (Werden in Variable gespeichert)
 let Achensee = document.getElementById("Achensee");
 let Kranebitten = document.getElementById("Kranebitten");
+let Sillschlucht = document.getElementById("Sillschlucht");
 
 /*Innerhalb ShowSlides eine weitere ELSE IF-Anweisung
 Innerhalb pulldownOnCHange eine weitere ELSE IF-Anweisung*/
@@ -78,6 +79,10 @@ function showSlides(n) {
     else if (Kranebitten.style.display === "block") {
     slides = document.querySelectorAll("#Kranebitten .mySlides");
     }
+
+    else if (Sillschlucht.style.display === "block") {
+        slides = document.querySelectorAll("#Sillschlucht .mySlides");
+        }
 
     if (n > slides.length) { slideIndex = 1 }
     if (n < 1) { slideIndex = slides.length }
@@ -158,6 +163,18 @@ pulldown.onchange = function (evt) {
 
         markerGroup.clearLayers();
         L.marker([47.269562, 11.328365], { icon: marker }).addTo(markerGroup).bindPopup(`<b>START / ZIEL: </b> Kranebitten Bahnhof <br> 47.269562 | 11.328365`, {className: 'Popup_map_w' });
+    }
+
+    else if (abfrage == "Durch die Sillschlucht") {
+        Sillschlucht.style.display = "block";  //Umstellen
+        Sillschlucht_daten.style.display = "flex";
+        showSlides(slideIndex);
+        controlElevation.clear();
+        controlElevation.load("Wanderungen/Sillschlucht.gpx");
+
+        markerGroup.clearLayers();
+        L.marker([47.246534, 11.393656], { icon: marker }).addTo(markerGroup).bindPopup(`<b>START: </b> Bahnhof Innsbruck Sonnenburgerhof <br> 47.246534 | 11.393656`, {className: 'Popup_map_w' });
+        L.marker([47.252564, 11.399654], { icon: marker }).addTo(markerGroup).bindPopup(`<b>START: </b> Bahnhof Bergisel<br> 47.252564 | 11.399654`, {className: 'Popup_map_w' });
     }
 
 }
