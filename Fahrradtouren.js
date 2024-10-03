@@ -1,3 +1,14 @@
+//Menü Grundlage
+
+const menuToggle = document.getElementById('menu-toggle');
+const nav = document.getElementById('nav');
+
+menuToggle.addEventListener('click', function() {
+    nav.classList.toggle('nav-open');
+});
+
+
+
 //FAHRRADTOURENLeitfaden
 
 let inhalt_pd = ["Pfaffenhofen-Innsbruck", "Innsbruck-Telfs"]; //Array um Bezeichnung für die Wanderungen festzulegen

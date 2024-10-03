@@ -37,7 +37,7 @@ h2 {
 }
 
 
-ul {
+ul.nav {
     grid-column: 2;
     display: flex;
     justify-content: flex-end;
@@ -63,6 +63,19 @@ main {
     padding-bottom: 1%;
     padding-right: 0.5%;
 }
+
+.menu-toggle {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: white;
+    grid-column: 2;
+    text-align: right;
+    margin-right: 1%;
+}
+
+
+
 
 /*Wanderungen*/
 
@@ -418,6 +431,8 @@ footer {
 
 
 
+
+
 /* RESPONSIVE WEBDESIGN */
 
 @media (max-width: 400px) {
@@ -475,7 +490,7 @@ h2 {
 #pulldown {
     grid-column: 1/span2;
     grid-row: 1;
-    font-size: 3vw;
+    font-size: 4vw;
     display: block;
     width: 100%;
     border-radius: 6px 6px 0px 0px;
@@ -531,6 +546,35 @@ footer {
 }
 
 
+.menu-toggle {
+    display: block;
+}
+
+ul.nav {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background-color: #395A7F;
+    position: absolute;
+    width: 100%;
+    top: 7.1%;
+    left: 0;
+    font-size: 4vw;
+    z-index: 1;
+    border-radius: 0px 0px 6px 6px;
+}
+
+ul.nav.nav-open {
+    display: flex;
+}
+
+.Logo {
+    width: 220%;
+    margin: 4%;
+}
+
+
+}
 
 
 

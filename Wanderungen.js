@@ -1,3 +1,15 @@
+//Menü Grundlage
+
+const menuToggle = document.getElementById('menu-toggle');
+const nav = document.getElementById('nav');
+
+menuToggle.addEventListener('click', function() {
+    nav.classList.toggle('nav-open');
+});
+
+
+
+
 //WANDERUNGEN Leitfaden
 
 let inhalt_pd = ["Von Innsbruck nach Seefeld", "Einmal um den Achensee", "Runde bei Kranebitten", "Durch die Sillschlucht"]; //Array um Bezeichnung für die Wanderungen festzulegen

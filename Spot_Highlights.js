@@ -1,3 +1,13 @@
+//Menü Grundlage
+
+const menuToggle = document.getElementById('menu-toggle');
+const nav = document.getElementById('nav');
+
+menuToggle.addEventListener('click', function() {
+    nav.classList.toggle('nav-open');
+});
+
+
 let map_spots = L.map("map_spots", { fullscreenControl: true }).setView([47.2683, 11.3933], 13);
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
