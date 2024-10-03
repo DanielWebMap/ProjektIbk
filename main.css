@@ -411,6 +411,9 @@ footer {
     color: rgb(231, 243, 255);
 }
 
+.Logo_Impressum {
+    width: 15%;
+}
 
 
 
@@ -462,14 +465,70 @@ h2 {
     border: none;
     margin-top: 0.5em;
 }
+
+
+#w_allg {
+    display: grid;
+    grid-template-columns: 70% 30%;
+}
+
+#pulldown {
+    grid-column: 1/span2;
+    grid-row: 1;
+    font-size: 3vw;
+    display: block;
+    width: 100%;
+    border-radius: 6px 6px 0px 0px;
+    }
+
+
+
+.informationen {
+    grid-column: 1/span2;
+    grid-row: 2;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 3.5vw;
+    border-radius:  0px 0px 6px 6px;
+}
+
+.item {
+    padding: 5px;
+}
+
+#Navigation {
+    grid-template-columns: 20% 80%;
+}
+
+ul { 
+    font-size: 3vw;;
+}
+
+.Logo_Impressum {
+    width: 40%;
+    margin-top: 2%;
+    
+}
+
+footer {
+    font-size: 3vw;
 }
 
 
 
+.color-circle-blue {
+    width: 2.5vw;
+    height: 2.5vw; }
 
+.color-circle-red {
+    width: 2.5vw;
+    height: 2.5vw;
+}
 
-
-
+.color-circle-black {
+    width: 2.5vw;
+    height: 2.5vw;
+}
 
 
 
