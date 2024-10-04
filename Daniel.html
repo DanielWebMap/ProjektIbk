@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,19 +32,19 @@
     <!-- eigene Stile und Hauptskript -->
     <link rel="stylesheet" href="main.css">
     <script defer src="main.js"></script>
-    
+
 
     <!-- leaflet-elevation -->
     <link rel="stylesheet" href="https://unpkg.com/@raruto/leaflet-elevation/dist/leaflet-elevation.css" />
     <script src="https://unpkg.com/@raruto/leaflet-elevation/dist/leaflet-elevation.js"></script>
 
-      <!-- Minimap -->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.css"
-      integrity="sha512-efbAfGnrnjA+hLwOLu91W034fBGPsMwZMVCTwLUI2PDX/m7rOiuhYZ+D2mZ8rKcpC/I/7pdgoL8T4eYvMHNoQg=="
-      crossorigin="anonymous" referrerpolicy="no-referrer" />
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.js"
-      integrity="sha512-ceQPs2CHke3gSINLt/JV37W1rfJOM64yuH999hnRhTP7tNtcSBp5hlTKhn8CEIhsFweSBrZMPVotAKjoyxGWNg=="
-      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Minimap -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.css"
+        integrity="sha512-efbAfGnrnjA+hLwOLu91W034fBGPsMwZMVCTwLUI2PDX/m7rOiuhYZ+D2mZ8rKcpC/I/7pdgoL8T4eYvMHNoQg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.js"
+        integrity="sha512-ceQPs2CHke3gSINLt/JV37W1rfJOM64yuH999hnRhTP7tNtcSBp5hlTKhn8CEIhsFweSBrZMPVotAKjoyxGWNg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <header>
     <div id="Navigation">
@@ -60,24 +61,39 @@
         </ul>
     </div>
 </header>
+
 <body>
-    <div class="Bild-Container">
-        <img src="data/Daniel.JPG" alt="Bild von Daniel in Schweden">
-        <div class="Bild-Overlay">
+    <main>
+        <div class="Bild-Container">
+            <img src="data/Daniel.JPG" alt="Bild von Daniel in Schweden">
+            <div class="Bild-Overlay">
+                Servus, <br>
+                ich bin Daniel, 26, und studiere seit März 2024 <br>
+                in Innsbruck den Masterstudiengang Geographie: <br>
+                Globaler Wandel - Regionale Nachhaltigkeit. Ich <br>
+                liebe die Natur und bin allgemein sehr gerne draußen <br>
+                unterwegs - Egal ob beim Wandern, Skifahren, <br>
+                Fahrradfahren oder Spikeball spielen. Daneben reise ich<br>
+                auch sehr gerne und verbringe gerne Zeit mit Freunden, <br>
+                z.B. bei einem gemeinsamen Spieleabend. <br>
+                Freut mich, dass ihr auf meiner Website vorbeischaut - <br>
+                Viel Spaß beim durchklicken!
+            </div>
+        </div>
+        <div class="Text_responsive">
             Servus, <br>
-            ich bin Daniel, 25, und studiere seit März 2024 <br>
-            in Innsbruck den Masterstudiengang Geographie: <br>
-            Globaler Wandel - Regionale Nachhaltigkeit. Ich <br>
-            liebe die Natur und bin allgemein sehr gerne draußen <br>
-            unterwegs - Egal ob beim Wandern, Skifahren, <br>
-            Fahrradfahren oder Spikeball spielen. Daneben reise ich<br>
-            auch sehr gerne und verbringe gerne Zeit mit Freunden,  <br>
-            z.B. bei einem gemeinsamen Spieleabend. <br>
-            Freut mich, dass ihr auf meiner Website vorbeischaut - <br>
+            ich bin Daniel, 26, und studiere seit März 2024 
+            in Innsbruck den Masterstudiengang Geographie: 
+            Globaler Wandel - Regionale Nachhaltigkeit. Ich 
+            liebe die Natur und bin allgemein sehr gerne draußen 
+            unterwegs - Egal ob beim Wandern, Skifahren, 
+            Fahrradfahren oder Spikeball spielen. Daneben reise ich
+            auch sehr gerne und verbringe gerne Zeit mit Freunden, 
+            z.B. bei einem gemeinsamen Spieleabend. 
+            Freut mich, dass ihr auf meiner Website vorbeischaut - 
             Viel Spaß beim durchklicken!
         </div>
-    </div>
-
+    </main>
     <footer>
         <div class="Impressum">
             <b>Impressum:</b><br>
@@ -86,14 +102,17 @@
             A-Innsbruck
         </div>
 
-        <img src="data/Logo.png" alt="Logo" class="Logo_Impressum" style="width: 15%;">
-        
+        <img src="data/Logo.png" alt="Logo" class="Logo_Impressum">
+
         <div class="Kontakt">
             <b>Kontakt:</b> <br>
             <i class="fa-solid fa-envelope"></i> <a href="mailto:daniel.schoenung@web.de" target="_blank">E-Mail</a><br>
-            <i class="fa-brands fa-instagram"></i> <a href="https://www.instagram.com/dani_movie/?hl=de" alt="Insta" target="_blanc">Instagram</a><br>
-            <i class="fa-brands fa-github"></i> <a href="https://github.com/DanielWebMap" alt="Github" target="_blanc">Github</a>
+            <i class="fa-brands fa-instagram"></i> <a href="https://www.instagram.com/dani_movie/?hl=de" alt="Insta"
+                target="_blanc">Instagram</a><br>
+            <i class="fa-brands fa-github"></i> <a href="https://github.com/DanielWebMap" alt="Github"
+                target="_blanc">Github</a>
         </div>
     </footer>
 </body>
+
 </html>

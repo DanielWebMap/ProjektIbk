@@ -3,9 +3,18 @@
     padding: 0;
 }
 
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+
 header {
     
 }
+
+body {
+    min-height: 100vh; /* Voller Viewport-Höhe */
+}
+
 
 #Navigation {
     display: grid;
@@ -62,6 +71,8 @@ main {
     padding-left: 0.5%;
     padding-bottom: 1%;
     padding-right: 0.5%;
+    flex: 1;
+    min-height: 100vh;
 }
 
 .menu-toggle {
@@ -530,8 +541,6 @@ footer {
     font-size: 3vw;
 }
 
-
-
 .color-circle-blue {
     width: 2.5vw;
     height: 2.5vw; }
@@ -576,13 +585,13 @@ ul.nav.nav-open {
 
 .Bild-Container {
     position: relative;
-    height: 60vh;
+    height: 50vh;
         
 }
 
 .Bild-Overlay-Titel {
     position: absolute;
-    top: 10vh;
+    top: 8vh;
     left: 15%;
     text-shadow: 1px 1px 2px black;
     color: white;
@@ -601,6 +610,23 @@ ul.nav.nav-open {
 
 .Logo2 {
     width: 30%;
+}
+
+.Bild-Overlay {
+    display: none;
+}
+
+.Text_responsive{
+    display: block;
+    color: #395A7F;
+    border: 1.5px solid #395A7F;
+    border-radius: 6px 6px 6px 6px;
+    padding: 2vw;
+    margin-top: 1vh;
+}
+
+footer {
+    margin-top: auto;
 }
 
 }
