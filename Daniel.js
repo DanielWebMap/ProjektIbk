@@ -3,7 +3,7 @@
 let D_map = L.map('D_map');
 
 if (window.innerWidth < 768) {
-    D_map.setView([21.633053, 22.623649], 1);
+    D_map.setView([50.427183, 6.883337], 3);
 }
 
 else {
