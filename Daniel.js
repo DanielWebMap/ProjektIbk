@@ -42,7 +42,7 @@ async function showGeojsonWelt(url) {
 function style(feature) {
     return {
         opacity: 1,
-        weight: 2,
+        weight: 1,
         color: "black",
         fillOpacity: 0.7,
         fillColor: getColor(feature.properties.name)
