@@ -70,4 +70,4 @@ function getColor(name) {
 }
 
 
-showGeojsonWelt("/data/Laender_Welt.json");
+showGeojsonWelt("data/Laender_Welt.json");
