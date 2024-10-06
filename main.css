@@ -386,7 +386,7 @@ img {
     color: white;
     font-family: "Barlow Semi Condensed";
     size: 50vw;
-    background-color:#395A7F;
+    background-color:#7fb4cac5;
     border-radius: 8px 8px 8px 8px;
 }
 
@@ -411,6 +411,34 @@ footer {
     font-weight: 700;
     font-style: normal;
   }
+
+
+#D_map {
+    width: 100%; 
+    height: 95vh;
+    border: 4px solid #395A7F;
+    border-radius: 8px 8px 8px 8px;
+}
+
+.Daniel_Karte {
+    width: 100%;
+    height: 100vh;
+    background-color: #395A7F;
+    margin-top: 3vh;
+    border-radius: 8px 8px 0px 0px;
+    color: white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;   
+}
+
+
+
+
+
+
+
+
+
+
 
 
 /*SPOT-HIGHLIGHTS*/
@@ -459,6 +487,9 @@ footer {
     width: 15%;
 }
 
+.Text_responsive {
+    display: none;
+}
 
 
 
@@ -663,6 +694,21 @@ footer {
     margin-top: auto;
 }
 
+
+#D_map {
+    width: 100%; 
+    height: 50vh;
+    border: 2px solid #395A7F;
+}
+
+.Daniel_Karte {
+    margin-top: 1vh;
+    height: 80%;
+    border-radius: 8px 8px 8px 8px;
+}
+
+.Daniel_Karte > h1 {
+    font-size: 1em;
 }
 
 
