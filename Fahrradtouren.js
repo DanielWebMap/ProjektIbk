@@ -11,10 +11,11 @@ menuToggle.addEventListener('click', function() {
 
 //FAHRRADTOURENLeitfaden
 
-let inhalt_pd = ["Pfaffenhofen-Innsbruck", "Innsbruck-Telfs"]; //Array um Bezeichnung für die Wanderungen festzulegen
+let inhalt_pd = ["Pfaffenhofen-Innsbruck", "Innsbruck-Telfs", "Abendrunde Ampass"]; //Array um Bezeichnung für die Wanderungen festzulegen
 
 let IT = document.getElementById("IT");
-let PI = document.getElementById("PI");  //Abfrage der Div-Elemente für die entsprechende Slideshow (Werden in Variable gespeichert)
+let PI = document.getElementById("PI"); 
+let AA = document.getElementById("AA");  //Abfrage der Div-Elemente für die entsprechende Slideshow (Werden in Variable gespeichert)
 
 
 /*Innerhalb ShowSlides eine weitere ELSE IF-Anweisung
@@ -27,7 +28,7 @@ let w_map = L.map("w_map", { fullscreenControl: true }).setView([47.2683, 11.393
 
 L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
     attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ, TomTom, Intermap, iPC, USGS, FAO, NPS, NRCAN, GeoBase, Kadaster NL, Ordnance Survey, Esri Japan, METI, Esri China (Hong Kong), and the GIS User Community'
-}).addTo(w_map);
+}).addTo(w_map); 
 
 
 
@@ -85,6 +86,10 @@ function showSlides(n) {
 
     else if (PI.style.display === "block") {
         slides = document.querySelectorAll("#PI .mySlides");
+    }
+
+    else if (AA.style.display === "block") {
+        slides = document.querySelectorAll("#AA .mySlides");
     }
 
     if (n > slides.length) { slideIndex = 1 }
@@ -159,6 +164,18 @@ pulldown.onchange = function (evt) {
         markerGroup.clearLayers();
         L.marker([47.268136, 11.387890], { icon: marker }).addTo(markerGroup).bindPopup(`<b>ZIEL:</b> Innsbruck <br> 47.268136 | 11.387890`, {className: 'Popup_map_w' });
         L.marker([48.538449, 11.515950], { icon: marker }).addTo(markerGroup).bindPopup(`<b>START:</b> Pfaffenhofen a.d.Ilm <br> 48.538449 | 11.515950`, {className: 'Popup_map_w' });
+    }
+
+    else if (abfrage == "Abendrunde Ampass") {
+        AA.style.display = "block";
+        AA_daten.style.display = "flex";
+        showSlides(slideIndex);
+        controlElevation.clear();
+        controlElevation.load("Fahrradtouren/Ampass.gpx");
+
+        markerGroup.clearLayers();
+        L.marker([47.267891, 11.387856], { icon: marker }).addTo(markerGroup).bindPopup(`<b>ZIEL:</b> Innsbruck <br> 47.267891 | 11.387856`, {className: 'Popup_map_w' });
+        L.marker([47.267091, 11.394003], { icon: marker }).addTo(markerGroup).bindPopup(`<b>START:</b> Innsbruck <br> 47.267091 | 11.394003`, {className: 'Popup_map_w' });
     }
 
 }
