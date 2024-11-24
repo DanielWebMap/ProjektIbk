@@ -11,11 +11,12 @@ menuToggle.addEventListener('click', function() {
 
 //FAHRRADTOURENLeitfaden
 
-let inhalt_pd = ["Pfaffenhofen-Innsbruck", "Innsbruck-Telfs", "Abendrunde Ampass"]; //Array um Bezeichnung für die Wanderungen festzulegen
+let inhalt_pd = ["Natterer See & Axams","Abendrunde Ampass","Innsbruck-Telfs","Pfaffenhofen-Innsbruck"]; //Array um Bezeichnung für die Wanderungen festzulegen
 
 let IT = document.getElementById("IT");
 let PI = document.getElementById("PI"); 
-let AA = document.getElementById("AA");  //Abfrage der Div-Elemente für die entsprechende Slideshow (Werden in Variable gespeichert)
+let AA = document.getElementById("AA");
+let NA = document.getElementById("NA");  //Abfrage der Div-Elemente für die entsprechende Slideshow (Werden in Variable gespeichert)
 
 
 /*Innerhalb ShowSlides eine weitere ELSE IF-Anweisung
@@ -47,7 +48,7 @@ let controlElevation = L.control.elevation({
     height: 300,
     theme: "ibk_bike",
 }).addTo(w_map);
-controlElevation.load("Fahrradtouren/PAF_Innsbruck.gpx"); //Erste Wanderung die bei Start der Seite angezeigt wird
+controlElevation.load("Fahrradtouren/Fahrradrunde_Natters_Axams.gpx"); //Erste Wanderung die bei Start der Seite angezeigt wird
 
 //Pulldown Menü
 
@@ -92,6 +93,10 @@ function showSlides(n) {
         slides = document.querySelectorAll("#AA .mySlides");
     }
 
+    else if (NA.style.display === "block") {
+        slides = document.querySelectorAll("#NA .mySlides");
+    }
+
     if (n > slides.length) { slideIndex = 1 }
     if (n < 1) { slideIndex = slides.length }
     for (i = 0; i < slides.length; i++) {
@@ -115,10 +120,7 @@ var marker = L.icon({
 });
 
 //Erste Marker beim Starten der Website (In diesem Falle Pfaffenhofen-Innsbruck)
-L.marker([47.268136, 11.387890], { icon: marker }).addTo(markerGroup).bindPopup(`<b>ZIEL:</b> Innsbruck <br> 47.268136 | 11.387890`, {className: 'Popup_map_w' });
-L.marker([48.538449, 11.515950], { icon: marker }).addTo(markerGroup).bindPopup(`<b>START:</b> Pfaffenhofen a.d.Ilm <br> 48.538449 | 11.515950`, {className: 'Popup_map_w' });
-
-
+L.marker([47.268011, 11.387808], { icon: marker }).addTo(markerGroup).bindPopup(`<b>START / ZIEL:</b> Innsbruck <br> 47.268011 | 11.387808`, {className: 'Popup_map_w' });
 
 
 
@@ -176,6 +178,18 @@ pulldown.onchange = function (evt) {
         markerGroup.clearLayers();
         L.marker([47.267891, 11.387856], { icon: marker }).addTo(markerGroup).bindPopup(`<b>ZIEL:</b> Innsbruck <br> 47.267891 | 11.387856`, {className: 'Popup_map_w' });
         L.marker([47.267091, 11.394003], { icon: marker }).addTo(markerGroup).bindPopup(`<b>START:</b> Innsbruck <br> 47.267091 | 11.394003`, {className: 'Popup_map_w' });
+    }
+
+    else if (abfrage == "Natterer See & Axams") {
+        NA.style.display = "block";
+        NA_daten.style.display = "flex";
+        showSlides(slideIndex);
+        controlElevation.clear();
+        controlElevation.load("Fahrradtouren/Fahrradrunde_Natters_Axams.gpx");
+
+        markerGroup.clearLayers();
+        L.marker([47.268011, 11.387808], { icon: marker }).addTo(markerGroup).bindPopup(`<b>START / ZIEL:</b> Innsbruck <br> 47.268011 | 11.387808`, {className: 'Popup_map_w' });
+        
     }
 
 }

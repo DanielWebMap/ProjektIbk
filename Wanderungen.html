@@ -68,7 +68,7 @@
 
             <!-- Innsbruck-Seefeld -->
             <select id="pulldown"></select>
-            <div id="seefeld_daten" class="informationen" style="display: flex">
+            <div id="seefeld_daten" class="informationen" style="display: none">
                 <div class="item">Tourdaten:</div>
                 <div class="item"><i class="fa-solid fa-route"></i> 22.09 km </div>
                 <div class="item"><i class="fa-solid fa-circle-up"></i> 740m </div>
@@ -142,6 +142,35 @@
                         alt="Komoot" target="_blanc" style="color:#7ebd32"><b>Link zu Komoot</b></a> </div>
             </div>
 
+            <!-- Zirbenweg -->
+            <div id="ZW_daten" class="informationen" style="display: none;">
+                <div class="item">Tourdaten:</div>
+                <div class="item"><i class="fa-solid fa-route"></i> 7.72 km </div>
+                <div class="item"><i class="fa-solid fa-circle-up"></i> 110m </div>
+                <div class="item"><i class="fa-solid fa-circle-down"></i> 190m </div>
+                <div class="item"><i class="fa-solid fa-mountain"></i> 2050 m. ü. NHN </div>
+                <div>Level: <div class="color-circle-blue"></div>
+                </div>
+                <div class="item">Ranking: <i class="fa-solid fa-1"></i>-</div>
+                <div class="item"> <a
+                        href="https://www.komoot.com/de-de/tour/1966572107?share_token=afCopWjIy5MVaI5L1Oqr40Yoxyd1Vhcnlwi7xvJc9PgL8eJRjs&ref=wtd"
+                        alt="Komoot" target="_blanc" style="color:#7ebd32"><b>Link zu Komoot</b></a> </div>
+            </div>
+
+            <!-- Runde Höttinger Alm -->
+            <div id="HA_daten" class="informationen" style="display: flex;">
+                <div class="item">Tourdaten:</div>
+                <div class="item"><i class="fa-solid fa-route"></i> 10.2 km </div>
+                <div class="item"><i class="fa-solid fa-circle-up"></i> 880m </div>
+                <div class="item"><i class="fa-solid fa-circle-down"></i> 720m </div>
+                <div class="item"><i class="fa-solid fa-mountain"></i> 1600 m. ü. NHN </div>
+                <div>Level: <div class="color-circle-red"></div>
+                </div>
+                <div class="item">Ranking: <i class="fa-solid fa-2"></i>+</div>
+                <div class="item"> <a
+                        href="https://www.komoot.com/de-de/tour/1952041667?share_token=aoJdWxLfceV4cOY6RqbC9sD5U0mEYErUHgPl7Q5IP4G8yObTkk&ref=wtd"
+                        alt="Komoot" target="_blanc" style="color:#7ebd32"><b>Link zu Komoot</b></a> </div>
+            </div>
 
         </div>
 
@@ -151,7 +180,7 @@
 
             <!-- Seefeld -->
 
-            <div class="Bilder" id="Seefeld" style="display: block;">
+            <div class="Bilder" id="Seefeld" style="display: none;">
                 <div class="slideshow-container">
                     <div class="mySlides fade">
                         <div class="image-container">
@@ -522,6 +551,161 @@
                         <i class="fa-solid fa-user-group"></i> Unterwegs mit Roman und René <br>
                         <i class="fa-solid fa-certificate"></i> Ranking: 2 (gut) <br>
                         <i class="fa-solid fa-calendar-days"></i> 18.10.2024
+                    </p>
+                </div>
+
+            </div>
+
+
+
+            <!-- Zirbenweg -->
+
+            <div class="Bilder" id="ZW" style="display: none;">
+                <div class="slideshow-container">
+                    <div class="mySlides fade">
+                        <div class="image-container">
+                            <img src="data/Zirbenweg/1.JPEG" style="width:100%">
+                        </div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="image-container">
+                            <img src="data/Zirbenweg/2.JPEG" style="width:100%">
+                        </div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="image-container">
+                            <img src="data/Zirbenweg/3.JPEG" style="width:100%">
+                        </div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="image-container">
+                            <img src="data/Zirbenweg/4.JPEG" style="width:100%">
+                        </div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="image-container">
+                            <img src="data/Zirbenweg/5.JPEG" style="width:100%">
+                        </div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="image-container">
+                            <img src="data/Zirbenweg/6.JPEG" style="width:100%">
+                        </div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="image-container">
+                            <img src="data/Zirbenweg/7.JPEG" style="width:100%">
+                        </div>
+                    </div>
+
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                </div>
+
+                <div class="Text">
+                    <div>
+                        <h2><i class="fa-solid fa-person-hiking"></i> Zirbenweg</h2>
+                        <hr style="border: none; height: 2px; background-color:white;">
+                    </div>
+                    <p>
+                        Ein wahrer Klassiker in Innsbruck. Nach einer anstregenden Vorlesung ist das genau die richtige
+                        Tour, um in die Natur zu "flüchten".
+                        Idealerweise fährt man mit dem Bus bis zur Glungezerbahn, welche einen bis zur Baumgrenze nach
+                        oben bringt. Von hier läuft man bis
+                        zum Patscherkovel einen sehr schönen Weg entlang. Auf dem Weg hat man immer wunderbare Ausblicke
+                        auf die Nordkette, das Inntal und Innsbruck.
+                        Durch die Seilbahnen spart man sich den Auf- und Abstieg, was die Tour zu einem traumhaften Weg
+                        für Jung und Alt macht.
+                        In der Hochsaision ist der Weg sicher sehr überlaufen, womit es sich ein Ausflug werktags
+                        anbietet. Klare Empfehlung!
+
+                        <br><br>
+                        <i class="fa-solid fa-user-group"></i> Unterwegs mit Sophie, René, Niklas <br>
+                        <i class="fa-solid fa-certificate"></i> Ranking: 1- (sehr gut) <br>
+                        <i class="fa-solid fa-calendar-days"></i> 29.10.2024
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- Höttinger Alm -->
+
+            <div class="Bilder" id="HA" style="display: block;">
+                <div class="slideshow-container">
+                    <div class="mySlides fade">
+                        <div class="image-container">
+                            <img src="data/Höttinger Alm/1.JPEG" style="width:100%">
+                        </div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="image-container">
+                            <img src="data/Höttinger Alm/2.JPEG" style="width:100%">
+                        </div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="image-container">
+                            <img src="data/Höttinger Alm/3.JPEG" style="width:100%">
+                        </div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="image-container">
+                            <img src="data/Höttinger Alm/4.JPEG" style="width:100%">
+                        </div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="image-container">
+                            <img src="data/Höttinger Alm/5.JPEG" style="width:100%">
+                        </div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="image-container">
+                            <img src="data/Höttinger Alm/6.JPEG" style="width:100%">
+                        </div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="image-container">
+                            <img src="data/Höttinger Alm/7.JPEG" style="width:100%">
+                        </div>
+                    </div>
+
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                </div>
+
+                <div class="Text">
+                    <div>
+                        <h2><i class="fa-solid fa-person-hiking"></i> Wanderung Höttinger Alm</h2>
+                        <hr style="border: none; height: 2px; background-color:white;">
+                    </div>
+                    <p>
+                        Idealerweise startet man die Tour an der Bushaltestelle Innsbruck Plattenhof - so startet man direkt
+                        auf einem schönen Wanderweg in die Natur. Vom Startpunkt aus geht es stetig die Nordkette
+                        bergauf, allerdings immer auf sehr schönen kleinen
+                        Wegen mitten durch den Wald. Gegen Ende muss man jedoch noch ein Stück auf einer SKiabfahrt
+                        laufen - dies ist nicht zuletzt
+                        durch die starke Steigung sehr anstrengend. Bei der Höttinger Alm befindet man sich inmitten
+                        eines grandiosen Alpenpanoramas.
+                        Von dort läuft man auf einem schönen Höhenweg in Richtung Seegrube. Unterhalb der Seilbahn
+                        geht es dann wieder relativ steil bergab, optional über einen Abstecher zur Arzler Alm. Die Tour
+                        endet an der Hungerburg.
+
+                        <br><br>
+                        <i class="fa-solid fa-user-group"></i> Unterwegs mit Dominik <br>
+                        <i class="fa-solid fa-certificate"></i> Ranking: 2+ (gut) <br>
+                        <i class="fa-solid fa-calendar-days"></i> 10.11.2024
                     </p>
                 </div>
 
