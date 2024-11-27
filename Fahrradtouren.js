@@ -8,9 +8,7 @@ menuToggle.addEventListener('click', function() {
 });
 
 
-
 //FAHRRADTOURENLeitfaden
-
 let inhalt_pd = ["Natterer See & Axams","Abendrunde Ampass","Innsbruck-Telfs","Pfaffenhofen-Innsbruck"]; //Array um Bezeichnung für die Wanderungen festzulegen
 
 let IT = document.getElementById("IT");
@@ -23,8 +21,7 @@ let NA = document.getElementById("NA");  //Abfrage der Div-Elemente für die ent
 Innerhalb pulldownOnCHange eine weitere ELSE IF-Anweisung*/
 
 
-//Erstellung der Leaflet Karte
-
+//ERSTELLUNG DER LEAFLET-MAP
 let w_map = L.map("w_map", { fullscreenControl: true }).setView([47.2683, 11.3933], 13);
 
 L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
@@ -34,7 +31,6 @@ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map
 
 
 //Maßstab
-
 L.control.scale({
     imperial: false,
 }).addTo(w_map);
@@ -142,7 +138,6 @@ pulldown.onchange = function (evt) {
             element.style.display = "none";
         }
     });
-
 
 
     if (abfrage == "Innsbruck-Telfs") {

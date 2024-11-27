@@ -438,9 +438,6 @@ footer {
 
 
 
-
-
-
 /*SPOT-HIGHLIGHTS*/
 
 #map_spots {
@@ -465,6 +462,12 @@ footer {
 .popup_restaurant .leaflet-popup-content-wrapper, 
 .popup_restaurant .leaflet-popup-tip{
     background: #E55D19;
+    color: rgb(255, 255, 255);
+}
+
+.popup_ski .leaflet-popup-content-wrapper, 
+.popup_ski .leaflet-popup-tip{
+    background: #24b6ff;
     color: rgb(255, 255, 255);
 }
 
