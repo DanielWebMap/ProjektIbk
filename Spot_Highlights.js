@@ -21,7 +21,7 @@ let themaLayer = {
     sightseeing: L.featureGroup(),
     freizeit: L.featureGroup(),
     shops: L.featureGroup(),
-    skigebiete: L.featureGroup(),
+    skigebiete: L.featureGroup().addTo(map_spots),
 }
 
 // Hintergrundlayer
@@ -56,7 +56,7 @@ var icon_cafe = L.icon({
 });
  
 //Café Momo
-L.marker([47.267207, 11.395057], {icon: icon_cafe}).bindPopup(`<h4>Café Momo</h4> <p>Gemütliches und schönes Café.<br> Man sitzt im Hinterhof, dadurch kein Lärm.</p> <a href="https://www.cafe-momo.at/" target="_blanc">Link zur Website</a>`, {className: 'popup_cafe'}).addTo(themaLayer.gastronomie)
+L.marker([47.267207, 11.395057], {icon: icon_cafe}).bindPopup(`<h4>Café Momo</h4><p>Gemütliches und schönes Café.<br> Man sitzt im Hinterhof, dadurch kein Lärm.</p> <a href="https://www.cafe-momo.at/" target="_blanc">Link zur Website</a>`, {className: 'popup_cafe'}).addTo(themaLayer.gastronomie)
 
 
 
@@ -69,10 +69,10 @@ var icon_bar = L.icon({
 });
 
 //Liquid Diary
-L.marker([47.266433, 11.392113], {icon: icon_bar}).bindPopup(`<h4>Liquid Diary</h4> <p>Beste Premiumbar in Innsbruck<br> Sehr guter Service, einzigartige Cocktails.</p> <a href="https://www.liquiddiary.com/" target="_blanc">Link zur Website</a>`, {className: 'popup_bar'}).addTo(themaLayer.gastronomie)
+L.marker([47.266433, 11.392113], {icon: icon_bar}).bindPopup(`<h4>Liquid Diary</h4><p>Beste Premiumbar in Innsbruck<br> Sehr guter Service, einzigartige Cocktails.</p> <a href="https://www.liquiddiary.com/" target="_blanc">Link zur Website</a>`, {className: 'popup_bar'}).addTo(themaLayer.gastronomie)
 
 //Wohnzimmer
-L.marker([47.265979, 11.383225], {icon: icon_bar}).bindPopup(`<h4>Wohnzimmer</h4> <p>Gemütliche Bar<br> Schönes Ambiente, ideal für Cocktails</p> <a href="https://www.wohnzimmer-bar.at/" target="_blanc">Link zur Website</a>`, {className: 'popup_bar'}).addTo(themaLayer.gastronomie)
+L.marker([47.265979, 11.383225], {icon: icon_bar}).bindPopup(`<h4>Wohnzimmer</h4><p>Gemütliche Bar<br> Schönes Ambiente, ideal für Cocktails</p> <a href="https://www.wohnzimmer-bar.at/" target="_blanc">Link zur Website</a>`, {className: 'popup_bar'}).addTo(themaLayer.gastronomie)
 
 
 //RESTAURANTS
@@ -84,12 +84,12 @@ var icon_restaurant = L.icon({
 });
 
 //Grieche Akropolis
-L.marker([47.266648, 11.391015], {icon: icon_restaurant}).bindPopup(`<h4>Akropolis (Griechisch)</h4><hr style="border: none; height: 1px; background-color:white;"><p>Lieblingsrestaurant in Innsbruck<br> Sehr gute & leckere Portionen, schönes Ambiente und guter Service</p> <a href="https://akropolis-innsbruck.com/" target="_blanc">Link zur Website</a>`, {className: 'popup_restaurant'}).addTo(themaLayer.gastronomie)
+L.marker([47.266648, 11.391015], {icon: icon_restaurant}).bindPopup(`<h4>Akropolis (Griechisch)</h4><p>Lieblingsrestaurant in Innsbruck<br> Sehr gute & leckere Portionen, schönes Ambiente und guter Service</p> <a href="https://akropolis-innsbruck.com/" target="_blanc">Link zur Website</a>`, {className: 'popup_restaurant'}).addTo(themaLayer.gastronomie)
 
 
 //SKIGEBIETE
 var icon_ski = L.icon({
-    iconUrl: 'icons/ski.png',
+    iconUrl: 'icons/Ski.png',
     iconSize: [30, 30], // size of the icon
     iconAnchor: [15, 30], // point of the icon which will correspond to marker's location
     popupAnchor: [0, -30], // point from which the popup should open relative to the iconAnchor
@@ -124,7 +124,7 @@ L.marker([47.060366, 10.374178], {icon: icon_ski}).bindPopup(`<h4>KAPPL (PAZNAUN
 L.marker([47.331510, 11.200189], {icon: icon_ski}).bindPopup(`<h4>Bergbahnen Rosshütte Seefeld</h4><hr style="border: none; height: 1px; background-color:white;">`, {className: 'popup_ski'}).addTo(themaLayer.skigebiete)
 
 //SILVAPARK
-L.marker([47.221966, 10.162281], {icon: icon_ski}).bindPopup(`<h4>SILVAPARK</h4><hr style="border: none; height: 1px; background-color:white;">`, {className: 'popup_ski'}).addTo(themaLayer.skigebiete)
+L.marker([46.965516, 10.162335], {icon: icon_ski}).bindPopup(`<h4>SILVAPARK</h4><hr style="border: none; height: 1px; background-color:white;">`, {className: 'popup_ski'}).addTo(themaLayer.skigebiete)
 
 //BERGERALM
 L.marker([47.086812, 11.459722], {icon: icon_ski}).bindPopup(`<h4>BERGERALM</h4><hr style="border: none; height: 1px; background-color:white;">`, {className: 'popup_ski'}).addTo(themaLayer.skigebiete)
