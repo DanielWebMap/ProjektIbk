@@ -21,7 +21,7 @@ body {
     grid-template-columns: 50% 50%;
     padding: 0.5%;
     align-items: center;
-    background-color: #1f65b4;
+    background-color: rgb(60, 123, 179);
     color: white;
     font-family: verdana, sans-serif;
 }
@@ -223,7 +223,7 @@ img {
 .ibk_bike {
     --ele-bg: white;
     --ele-axis: #000000;
-    --ele-area: rgb(138, 188, 231);
+    --ele-area: #feed94;
     --ele-grid: #CCC;
     --ele-brush: rgb(255, 255, 255);
     --ele-poly: blue;
@@ -253,7 +253,7 @@ img {
 
 
 #pulldown {
-    background-color: #f7e948;
+    background-color: #feed94;
     border-radius: 6px 6px 6px 6px;
     padding: 1em;
     border: none;
@@ -308,7 +308,7 @@ img {
     grid-column: 2;
     grid-row: 1/ span 2;
     margin-left: 2%;
-    background-color: #1f65b4;
+    background-color: rgb(60, 123, 179);
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: white;
 }
@@ -399,7 +399,7 @@ img {
 
 
 footer {
-    background-color:rgb(98, 135, 167);
+    background-color:rgb(134, 158, 179);
     color: white;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     padding: 0.5%;
@@ -615,7 +615,7 @@ ul.nav {
     display: none;
     flex-direction: column;
     align-items: center;
-    background-color: #395A7F;
+    background-color: rgb(60, 123, 179);
     position: absolute;
     width: 100%;
     top: 50px;
