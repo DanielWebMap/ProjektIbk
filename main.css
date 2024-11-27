@@ -107,7 +107,7 @@ main {
     height: 50vh;
     border-width: 10px;
     grid-column: 1;
-    border: 2px solid #1f65b4;
+    border: 2px solid rgb(60, 123, 179);
 }
 
 .Popup_map_w .leaflet-popup-content-wrapper, 
@@ -122,7 +122,7 @@ main {
     position: relative;
     grid-column: 2;
     grid-row: 1/3;
-    border: 2px solid #1f65b4;
+    border: 2px solid rgb(60, 123, 179);
     overflow: hidden;
 }
 
@@ -175,7 +175,7 @@ img {
 /* Hover-Effekte für die Pfeile */
 .prev:hover,
 .next:hover {
-    background-color: #1f65b4;
+    background-color: rgb(60, 123, 179);
 }
 
 /* Fading Animation */
@@ -216,7 +216,7 @@ img {
     width: 100%;
     grid-column: 1;
     grid-row: 2;
-    border: 2px solid #1f65b4;
+    border: 2px solid rgb(60, 123, 179);
 }
 
 .ibk_hiking,
@@ -281,7 +281,7 @@ img {
 }
 
 .color-circle-blue {
-    border-color: #1f65b4;
+    border-color: rgb(60, 123, 179);
     background-color: rgb(97, 181, 255);
     width: 1vw;
     height: 1vw;
@@ -289,7 +289,7 @@ img {
 }
 
 .color-circle-red {
-    border-color: #1f65b4;
+    border-color: rgb(60, 123, 179);
     background-color: rgb(255, 97, 97);
     width: 1vw;
     height: 1vw;
@@ -297,7 +297,7 @@ img {
 }
 
 .color-circle-black {
-    border-color: #1f65b4;
+    border-color: rgb(60, 123, 179);
     background-color: rgb(0, 0, 0);
     width: 1vw;
     height: 1vw;
@@ -419,14 +419,14 @@ footer {
 #D_map {
     width: 100%; 
     height: 95vh;
-    border: 4px solid #395A7F;
+    border: 4px solid rgb(60, 123, 179);
     border-radius: 8px 8px 8px 8px;
 }
 
 .Daniel_Karte {
     width: 100%;
     height: 100vh;
-    background-color: #395A7F;
+    background-color: rgb(60, 123, 179);
     margin-top: 3vh;
     border-radius: 8px 8px 0px 0px;
     color: white;
@@ -440,7 +440,7 @@ footer {
 #map_spots {
     height: 85vh;
     margin: 0.5%;
-    border: 3px solid #395A7F;
+    border: 3px solid rgb(60, 123, 179);
     border-radius: 6px 6px 6px 6px;
 }
 
@@ -508,20 +508,30 @@ body {
     justify-content: space-between;
     flex-direction: column;
     align-items: stretch;
+    margin-right: 1vw;
+    margin-left: 1vw;
 }
 
 #w_spez {
     display: flex;
     flex-direction: column;
     align-items: stretch;
-}
+    margin-right: 1vw;
+    margin-left: 1vw; }
+    
 
 .Bilder {
     order: 1;
     margin-left: 0;
     height: auto;
     padding-bottom: 2%;
+    border-radius: 6px 6px 0 0;
 }
+
+.slideshow-container {
+    border-radius: 6px 6px 0 0;
+}
+
 
 h2 {
     font-size: 6vw;
@@ -533,14 +543,13 @@ h2 {
 
 #w_map {
     order: 3;
-    border: none;
-    margin-top: 0.5em;
+    border:none;
 }
 
 #profile {
     order: 4;
     border: none;
-    margin-top: 0.5em;
+    border-radius: 0 0 6px 6px;
 }
 
 
