@@ -63,6 +63,9 @@
         src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.awesome-markers/2.0.4/leaflet.awesome-markers.js"></script>
 
 
+    <!-- Einbindung Google Charts -->
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+
 
 </head>
 <header>
@@ -82,15 +85,15 @@
 
 
     <div class="Bild-Container">
-        <img src="data/ibk.JPEG" alt="Bild von Innsbruck">
+        <img src="data/ibk.JPG" alt="Bild von Innsbruck">
         <div class="Bild-Overlay-Titel">
             <img src="data/Logo2.png" alt="Logo" class="Logo2">
             <h1>Weblog: Innsbruck</h1>
-            <hr style="border: none; height: 3px; background-color:white;">
+            <hr style="border: none; height: 2px; background-color:white; margin-top: 0.3em;">
             <h3>Erlebnisse in Tirol</h3>
         </div>
         <div class="Einfuerungstext">
-            Herzlich Wilkommen auf dem Weblog Innsbruck! <br>
+            <b>Herzlich Wilkommen auf dem Weblog Innsbruck!</b><br>
             Mit dieser Website möchte ich zum einen mein Leben in
             Innsbruck (und Umgebung) etwas dokumentieren und zugleich ein bisschen meine Programmierkenntnisse am laufen halten.
             Dokumentiert werden Wanderungen, Fahrradtouren aber auch interesssante Spots, Skigebiete sowie gemeinsame Highlights
@@ -105,13 +108,32 @@
     <main>
         <div class="Einfuerungstext_responsive">
             <p>
-                Herzlich Wilkommen auf dem Weblog Innsbruck! <br>
+                <b>Herzlich Wilkommen auf dem Weblog Innsbruck!</b><br>
                 Mit dieser Website möchte ich zum einen mein Leben in
                 Innsbruck (und Umgebung) etwas dokumentieren und zugleich ein bisschen meine Programmierkenntnisse am laufen halten.
                 Dokumentiert werden Wanderungen, Fahrradtouren aber auch interesssante Spots, Skigebiete sowie gemeinsame Highlights
                 und Ausflüge mit Freunden. Let´s continue the adventure!
             </p>
         </div>
+        <div class="Grid-Spalten">
+            <div class="Fakten"> 
+                <b>Innsbruck-Chapter in Zahlen:</b>
+                <p>
+                    Wandertage: 30 |
+                    Fahrradtouren: 5 |
+                    Skitage: 0 |
+                    Kurztrips: 1 
+                </p>
+                <div id="chart"></div>
+            </div>
+
+            <div class="NEU"> 
+                <b>NEU: <a href="Fahrradtouren.html">Fahradtour Natterer See & Axams (20.10.2024)</a></b>
+                <img src="data/NattererSee/1.JPEG">
+            </div>
+        </div>
+
+
     </main>
     <footer>
         <div class="Impressum">

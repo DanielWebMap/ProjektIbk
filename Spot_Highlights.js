@@ -38,7 +38,7 @@ let layerControl = L.control.layers({
     "Sightseeing": themaLayer.restaurant,
     "Freizeit": themaLayer.freizeit,
     "Shops": themaLayer.freizeit,
-    "Skigebiete": themaLayer.skigebiete,
+    "Skigebiete (Freizeiticket)": themaLayer.skigebiete,
 }).addTo(map_spots);
 
 
