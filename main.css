@@ -125,6 +125,11 @@ main {
     position: relative;
 }
 
+.chart {
+    width: 50%;
+    height: 50vh;
+}
+
 
 
 /*Wanderungen*/
@@ -754,6 +759,7 @@ ul.nav.nav-open {
 
 .Fakten {
     border: 1px solid;
+    
 
 }
 
