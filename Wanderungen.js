@@ -12,7 +12,7 @@ menuToggle.addEventListener('click', function() {
 
 //WANDERUNGEN Leitfaden
 
-let inhalt_pd = ["Wanderung Höttinger Alm","Zirbenweg","Spaziergang Lanser Kopf","Durch die Sillschlucht" ,"Runde bei Kranebitten","Einmal um den Achensee", "Von Innsbruck nach Seefeld"]; //Array um Bezeichnung für die Wanderungen festzulegen
+let inhalt_pd = ["Wanderung Höttinger Alm","Zirbenweg","Spaziergang Lanser Kopf","Durch die Sillschlucht" ,"Runde bei Kranebitten","Einmal um den Achensee", "Von Innsbruck nach Seefeld", "Winterwanderung Seefeld"]; //Array um Bezeichnung für die Wanderungen festzulegen
 
 let Seefeld = document.getElementById("Seefeld");  //Abfrage der Div-Elemente für die entsprechende Slideshow (Werden in Variable gespeichert)
 let Achensee = document.getElementById("Achensee");
@@ -21,6 +21,7 @@ let Sillschlucht = document.getElementById("Sillschlucht");
 let LK = document.getElementById("LK");
 let HA = document.getElementById("HA");
 let ZW = document.getElementById("ZW");
+let SFW = document.getElementById("SFW");
 
 /*Innerhalb ShowSlides eine weitere ELSE IF-Anweisung
 Innerhalb pulldownOnCHange eine weitere ELSE IF-Anweisung*/
@@ -51,7 +52,7 @@ let controlElevation = L.control.elevation({
     height: 300,
     theme: "ibk_hiking",
 }).addTo(w_map);
-controlElevation.load("Wanderungen/Runde_Hoettinger_Alm.gpx"); //Erste Wanderung die bei Start der Seite angezeigt wird
+controlElevation.load("Wanderungen/seefeld_winter.gpx"); //Erste Wanderung die bei Start der Seite angezeigt wird
 
 //Pulldown Menü
 
@@ -61,7 +62,7 @@ console.log(inhalt_pd);
 
 for (i=0; i<inhalt_pd.length; i++) {
     let status = "";
-    if (inhalt_pd[i] == "Seefeld"){
+    if (inhalt_pd[i] == "Winterwanderung Seefeld"){
         status = " selected ";   //Anzeige der aktuellen Etappe
     }
     pulldown.innerHTML += `<option ${status} value="${inhalt_pd[i]}">${inhalt_pd[i]}</option>`;
@@ -110,6 +111,10 @@ function showSlides(n) {
     else if (HA.style.display === "block") {
         slides = document.querySelectorAll("#HA .mySlides");
         }
+    
+    else if (SFW.style.display === "block") {
+        slides = document.querySelectorAll("#SFW .mySlides");
+        }
 
     if (n > slides.length) { slideIndex = 1 }
     if (n < 1) { slideIndex = slides.length }
@@ -134,8 +139,8 @@ var marker = L.icon({
 
 
 //Erste Marker beim Starten der Website (In diesem Falle Pfaffenhofen-Innsbruck)
-L.marker([47.276550, 11.386273], { icon: marker }).addTo(markerGroup).bindPopup(`<b>START: </b> Bushaltestelle Tummelplatz <br> 47.276550 | 11.386273`, {className: 'Popup_map_w' });
-L.marker([47.286445, 11.398418], { icon: marker }).addTo(markerGroup).bindPopup(`<b>Ziel: </b> Hungerburg <br> 47.286445 | 11.398418`, {className: 'Popup_map_w' });
+L.marker([47.313312, 11.160232], { icon: marker }).addTo(markerGroup).bindPopup(`<b>START/ZIEL: </b> Parkplatz Seewald <br> 47.313312 | 11.160232`, {className: 'Popup_map_w' });
+
 
 
 
@@ -240,6 +245,17 @@ pulldown.onchange = function (evt) {
         markerGroup.clearLayers();
         L.marker([47.276550, 11.386273], { icon: marker }).addTo(markerGroup).bindPopup(`<b>START: </b> Bushaltestelle Tummelplatz <br> 47.276550 | 11.386273`, {className: 'Popup_map_w' });
         L.marker([47.286445, 11.398418], { icon: marker }).addTo(markerGroup).bindPopup(`<b>Ziel: </b> Hungerburg <br> 47.286445 | 11.398418`, {className: 'Popup_map_w' });
+    }
+
+    else if (abfrage == "Winterwanderung Seefeld") {
+        SFW.style.display = "block";  //Umstellen
+        SFW_daten.style.display = "flex";
+        showSlides(slideIndex);
+        controlElevation.clear();
+        controlElevation.load("Wanderungen/seefeld_winter.gpx");
+
+        markerGroup.clearLayers();
+        L.marker([47.313312, 11.160232], { icon: marker }).addTo(markerGroup).bindPopup(`<b>START/ZIEL: </b> Parkplatz Seewald <br> 47.313312 | 11.160232`, {className: 'Popup_map_w' });
     }
 
 
