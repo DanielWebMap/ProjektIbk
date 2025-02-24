@@ -48,6 +48,19 @@
       <!-- Locate Control -->
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.css" />
       <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.js" charset="utf-8"></script>
+
+    <!-- Leaflet Plugin Sidebar  -->
+    <!--<link rel="stylesheet" href="/plugins/leaflet-sidebar.css">
+     <script src="plugins/leaflet-sidebar.js"></script>-->
+    <script src="https://unpkg.com/leaflet-sidebar@0.2.0/src/L.Control.Sidebar.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://unpkg.com/leaflet-sidebar@0.2.0/src/L.Control.Sidebar.css" />
+
+     <!-- Einbindung Google Charts -->
+     <script src="https://www.gstatic.com/charts/loader.js"></script>
+
+     <!-- Einbindung JQuery -->
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+ 
       
 
 </head>
@@ -61,14 +74,86 @@
             <li><a href="index.html">Startseite</a></li>
             <li><a href="Wanderungen.html">Wanderungen</a></li>
             <li><a href="Fahrradtouren.html">Fahrradtouren</a></li>
-            <li><a href="Spot_Highlights.html">Spot-Highlights</a></li>
+            <li><a href="Spot_Highlights.html">Standorte</a></li>
             <li><a href="Daniel.html">Über Mich</li></a>
         </ul>
     </div>
 </header>
 <body>
     <main> 
+        <div id="sidebar"></div>
         <div id="map_spots"></div> 
+
+        <div class="Grid-Spalten">
+            <div class="Skigebietinfos"> 
+                <b>Informationen zum Skigebiet:</b>
+                <div id="tabelle_ski"></div>
+            </div>
+            <div class="Ski_Bilder"> 
+                <div class="Slider_Ski" id="HA" style="display: block;">
+                    <div class="slideshow-container_ski">
+                        <div class="mySlides fade">
+                            <div class="image-container">
+                                <img src="data/Skigebiete/Axamer_Lizum/1.JPEG" style="width:100%">
+                            </div>
+                        </div>
+    
+                        <div class="mySlides fade">
+                            <div class="image-container">
+                                <img src="data/Skigebiete/Axamer_Lizum/2.JPEG" style="width:100%">
+                            </div>
+                        </div>
+
+                        <div class="mySlides fade">
+                            <div class="image-container">
+                                <img src="data/Skigebiete/Axamer_Lizum/3.JPEG" style="width:100%">
+                            </div>
+                        </div>
+
+                        <div class="mySlides fade">
+                            <div class="image-container">
+                                <img src="data/Skigebiete/Axamer_Lizum/4.JPEG" style="width:100%">
+                            </div>
+                        </div>
+
+                        <div class="mySlides fade">
+                            <div class="image-container">
+                                <img src="data/Skigebiete/Axamer_Lizum/5.JPEG" style="width:100%">
+                            </div>
+                        </div>
+
+                        <div class="mySlides fade">
+                            <div class="image-container">
+                                <img src="data/Skigebiete/Axamer_Lizum/6.JPEG" style="width:100%">
+                            </div>
+                        </div>
+
+                        <div class="mySlides fade">
+                            <div class="image-container">
+                                <img src="data/Skigebiete/Axamer_Lizum/7.JPEG" style="width:100%">
+                            </div>
+                        </div>
+
+                        <div class="mySlides fade">
+                            <div class="image-container">
+                                <img src="data/Skigebiete/Axamer_Lizum/8.JPEG" style="width:100%">
+                            </div>
+                        </div>
+
+                        <div class="mySlides fade">
+                            <div class="image-container">
+                                <img src="data/Skigebiete/Axamer_Lizum/9.JPEG" style="width:100%">
+                            </div>
+                        </div>
+
+    
+                        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    </div>
+            </div>
+
+            
+        </div>
     </main> 
     
     <footer>
