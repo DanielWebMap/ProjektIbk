@@ -3,38 +3,17 @@
 const menuToggle = document.getElementById('menu-toggle');
 const nav = document.getElementById('nav');
 
-menuToggle.addEventListener('click', function() {
+menuToggle.addEventListener('click', function () {
     nav.classList.toggle('nav-open');
 });
 
-
-
-
-//WANDERUNGEN Leitfaden
-
-let inhalt_pd = ["Wanderung Höttinger Alm","Zirbenweg","Spaziergang Lanser Kopf","Durch die Sillschlucht" ,"Runde bei Kranebitten","Einmal um den Achensee", "Von Innsbruck nach Seefeld", "Winterwanderung Seefeld"]; //Array um Bezeichnung für die Wanderungen festzulegen
-
-let Seefeld = document.getElementById("Seefeld");  //Abfrage der Div-Elemente für die entsprechende Slideshow (Werden in Variable gespeichert)
-let Achensee = document.getElementById("Achensee");
-let Kranebitten = document.getElementById("Kranebitten");
-let Sillschlucht = document.getElementById("Sillschlucht");
-let LK = document.getElementById("LK");
-let HA = document.getElementById("HA");
-let ZW = document.getElementById("ZW");
-let SFW = document.getElementById("SFW");
-
-/*Innerhalb ShowSlides eine weitere ELSE IF-Anweisung
-Innerhalb pulldownOnCHange eine weitere ELSE IF-Anweisung*/
-
-
 //Erstellung der Leaflet Karte
 
-let w_map = L.map("w_map", {fullscreenControl: true}).setView([47.2683, 11.3933], 13);
+let w_map = L.map("w_map", { fullscreenControl: true }).setView([47.2683, 11.3933], 13);
 
 L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
-	attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ, TomTom, Intermap, iPC, USGS, FAO, NPS, NRCAN, GeoBase, Kadaster NL, Ordnance Survey, Esri Japan, METI, Esri China (Hong Kong), and the GIS User Community'
+    attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ, TomTom, Intermap, iPC, USGS, FAO, NPS, NRCAN, GeoBase, Kadaster NL, Ordnance Survey, Esri Japan, METI, Esri China (Hong Kong), and the GIS User Community'
 }).addTo(w_map);
-
 
 
 //Maßstab
@@ -52,78 +31,7 @@ let controlElevation = L.control.elevation({
     height: 300,
     theme: "ibk_hiking",
 }).addTo(w_map);
-controlElevation.load("Wanderungen/seefeld_winter.gpx"); //Erste Wanderung die bei Start der Seite angezeigt wird
-
-//Pulldown Menü
-
-let pulldown = document.querySelector("#pulldown"); //Styling PullDown Menu
-
-console.log(inhalt_pd);
-
-for (i=0; i<inhalt_pd.length; i++) {
-    let status = "";
-    if (inhalt_pd[i] == "Winterwanderung Seefeld"){
-        status = " selected ";   //Anzeige der aktuellen Etappe
-    }
-    pulldown.innerHTML += `<option ${status} value="${inhalt_pd[i]}">${inhalt_pd[i]}</option>`;
-}
-
-
-
-//SLIDESHOW
-
-let slideIndex = 1;
-showSlides(slideIndex);
-
-// Vorwärts/Rückwärts Steuerung
-function plusSlides(n) {
-    showSlides(slideIndex += n);
-}
-
-// Aktuelles Bild anzeigen
-function showSlides(n) {
-    let i;
-    let slides;
-    
-    if (Seefeld.style.display === "block") {
-    slides = document.querySelectorAll("#Seefeld .mySlides"); }
-
-    else if (Achensee.style.display === "block") {
-    slides = document.querySelectorAll("#Achensee .mySlides");
-    }
-
-    else if (Kranebitten.style.display === "block") {
-    slides = document.querySelectorAll("#Kranebitten .mySlides");
-    }
-
-    else if (Sillschlucht.style.display === "block") {
-        slides = document.querySelectorAll("#Sillschlucht .mySlides");
-        }
-    
-    else if (LK.style.display === "block") {
-        slides = document.querySelectorAll("#LK .mySlides");
-        }
-
-    else if (ZW.style.display === "block") {
-        slides = document.querySelectorAll("#ZW .mySlides");
-        }
-
-    else if (HA.style.display === "block") {
-        slides = document.querySelectorAll("#HA .mySlides");
-        }
-    
-    else if (SFW.style.display === "block") {
-        slides = document.querySelectorAll("#SFW .mySlides");
-        }
-
-    if (n > slides.length) { slideIndex = 1 }
-    if (n < 1) { slideIndex = slides.length }
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-    }
-    slides[slideIndex - 1].style.display = "block";
-}
-
+controlElevation.load("Wanderungen/seefeld.gpx"); //Erste Wanderung die bei Start der Seite angezeigt wird
 
 //MARKER DEFINITIONEN
 
@@ -137,132 +45,182 @@ var marker = L.icon({
     popupAnchor: [0, -45], // point from which the popup should open relative to the iconAnchor
 });
 
-
 //Erste Marker beim Starten der Website (In diesem Falle Pfaffenhofen-Innsbruck)
-L.marker([47.313312, 11.160232], { icon: marker }).addTo(markerGroup).bindPopup(`<b>START/ZIEL: </b> Parkplatz Seewald <br> 47.313312 | 11.160232`, {className: 'Popup_map_w' });
+L.marker([47.265052, 11.340374], { icon: marker }).addTo(markerGroup).bindPopup(`<b>START:</b> Innsbruck <br> 47.265052 | 11.340374`, {className: 'Popup_map_w' });
+L.marker([47.328882, 11.189220], { icon: marker }).addTo(markerGroup).bindPopup(`<b>Ziel:</b> Seefeld in Tirol <br> 47.328882 | 11.189220`, {className: 'Popup_map_w' });
 
 
 
+let pulldown = document.querySelector("#pulldown"); // Dropdown-Menü
+let Bilder_div = document.querySelector(".Bilder"); // Container für Bilder
+let Text_div = document.querySelector(".Text"); // Container für Text
+let Daten_div = document.querySelector(".informationen");
 
+// Google Sheets API URL
+const api_url = "https://docs.google.com/spreadsheets/d/19CpJMBCox8hgPJujWinmZm7KTxW-MkF_pTo16Ji9XNQ/gviz/tq?tqx=out:json"; 
 
-//Funkion welche regelt, wass bei KLick auf das Pulldown Menü passiert
+async function fetchGoogleSheetsData() {
+    try {
+        const response = await fetch(api_url);
+        const text = await response.text();
+        const json = JSON.parse(text.substring(47, text.length - 2)); // Bereinigt Google Sheets JSON-Format
 
-pulldown.onchange = function (evt) {
-    let abfrage = evt.target.value;
-    var elements = document.querySelectorAll('.Bilder');
-    var informationen = document.querySelectorAll('.informationen');
-    
-    elements.forEach(function(element) {
-        if (window.getComputedStyle(element).display === 'block') {
-            element.style.display = "none";
-        } 
-     });
+        let inhalt_pd = []; // Liste der Orte
+        let locations = {}; // Speichert alle Orte und deren Daten
 
-     informationen.forEach(function(element) {
-        if (window.getComputedStyle(element).display === 'flex') {
-            element.style.display = "none";
-        } 
-     });   
-    
-    if (abfrage == "Von Innsbruck nach Seefeld") {
-        Seefeld.style.display = "block";
-        seefeld_daten.style.display = "flex";
-        showSlides(slideIndex);
-        controlElevation.clear();
-        controlElevation.load("Wanderungen/Seefeld.gpx");
+        json.table.rows.slice(1).forEach(row => {
+            const key = row.c[0]?.v; // Name des Ortes
+            const titel = row.c[1]?.v; // Titel
+            const bilder = row.c[2]?.v ? row.c[2].v.split(",").map(img => img.trim()) : []; // Bilder als Array
+            const laenge = row.c[3]?.v;
+            const bergauf = row.c[4]?.v;
+            const bergab = row.c[5]?.v;
+            const hoechsterpunkt = row.c[6]?.v;
+            const level = row.c[7]?.v;
+            const ranking = row.c[8]?.v;
+            const note = row.c[9]?.v;
+            const datum = row.c[10]?.v;
+            const freunde = row.c[11]?.v;
+            const komoot = row.c[12]?.v;
+            const gpx = row.c[13]?.v;
+            const start = row.c[14]?.v ? row.c[14].v.split(",").map(srt=> srt.trim()) : []; 
+            const ziel = row.c[15]?.v ? row.c[15].v.split(",").map(ziel => ziel.trim()) : []; 
+            const beschreibung = row.c[16]?.v;
 
-        markerGroup.clearLayers();
-        L.marker([47.265052, 11.340374], { icon: marker }).addTo(markerGroup).bindPopup(`<b>START:</b> Innsbruck <br> 47.265052 | 11.340374`, {className: 'Popup_map_w' });
-        L.marker([47.328882, 11.189220], { icon: marker }).addTo(markerGroup).bindPopup(`<b>Ziel:</b> Seefeld in Tirol <br> 47.328882 | 11.189220`, {className: 'Popup_map_w' });
+            if (key && bilder.length > 0) { // Nur hinzufügen, wenn Bilder vorhanden sind
+                locations[key] = {
+                    titel,
+                    bilder,
+                    laenge,
+                    bergauf,
+                    bergab,
+                    hoechsterpunkt,
+                    level,
+                    ranking,
+                    note,
+                    datum,
+                    freunde,
+                    komoot,
+                    gpx,
+                    start,
+                    ziel,
+                    beschreibung
+                };
+                inhalt_pd.push(key);
+            }
+        });
+
+        // Dropdown-Optionen erstellen
+        pulldown.innerHTML = inhalt_pd.map((ort, index) =>
+            `<option value="${ort}" ${index === 0 ? "selected" : ""}>${locations[ort].titel}</option>`
+        ).join("");
+
+        // Erste Slideshow laden (erster Dropdown-Wert)
+        if (inhalt_pd.length > 0) {
+            updateContent(inhalt_pd[0], locations);
+        }
+
+        // Event-Listener für Pulldown-Menü (ändert die Anzeige je nach Auswahl)
+        pulldown.addEventListener("change", function () {
+            updateContent(this.value, locations);
+            changeGPX(this.value,locations)
+        });
+    } catch (error) {
+        console.error("Fehler beim Abrufen der Google Sheets Daten:", error);
     }
-
-    else if (abfrage == "Einmal um den Achensee") {
-        Achensee.style.display = "block";
-        achensee_daten.style.display = "flex";
-        showSlides(slideIndex);
-        controlElevation.clear();
-        controlElevation.load("Wanderungen/Achensee.gpx");
-
-        markerGroup.clearLayers();
-        L.marker([47.424384, 11.748980], { icon: marker }).addTo(markerGroup).bindPopup(`<b>START / ZIEL:</b> Maurach (Busstation) <br> 47.424384 | 11.748980`, {className: 'Popup_map_w' });
-    }
-
-    else if (abfrage == "Runde bei Kranebitten") {
-        Kranebitten.style.display = "block";  //Umstellen
-        kranebitten_daten.style.display = "flex";
-        showSlides(slideIndex);
-        controlElevation.clear();
-        controlElevation.load("Wanderungen/Kranebitten.gpx");
-
-        markerGroup.clearLayers();
-        L.marker([47.269562, 11.328365], { icon: marker }).addTo(markerGroup).bindPopup(`<b>START / ZIEL: </b> Kranebitten Bahnhof <br> 47.269562 | 11.328365`, {className: 'Popup_map_w' });
-    }
-
-    else if (abfrage == "Durch die Sillschlucht") {
-        Sillschlucht.style.display = "block";  //Umstellen
-        Sillschlucht_daten.style.display = "flex";
-        showSlides(slideIndex);
-        controlElevation.clear();
-        controlElevation.load("Wanderungen/Sillschlucht.gpx");
-
-        markerGroup.clearLayers();
-        L.marker([47.246534, 11.393656], { icon: marker }).addTo(markerGroup).bindPopup(`<b>START: </b> Bahnhof Innsbruck Sonnenburgerhof <br> 47.246534 | 11.393656`, {className: 'Popup_map_w' });
-        L.marker([47.252817, 11.399659], { icon: marker }).addTo(markerGroup).bindPopup(`<b>Ziel: </b> Bahnhof Bergisel<br> 47.252817 | 11.399659`, {className: 'Popup_map_w' });
-    }
-
-    else if (abfrage == "Spaziergang Lanser Kopf") {
-        LK.style.display = "block";  //Umstellen
-        LK_daten.style.display = "flex";
-        showSlides(slideIndex);
-        controlElevation.clear();
-        controlElevation.load("Wanderungen/Lanser_Kopf.gpx");
-
-        markerGroup.clearLayers();
-        L.marker([47.254942, 11.428102], { icon: marker }).addTo(markerGroup).bindPopup(`<b>START: </b> Bahnhof Tummelplatz <br> 47.254942 | 11.428102`, {className: 'Popup_map_w' });
-        L.marker([47.233760, 11.412605], { icon: marker }).addTo(markerGroup).bindPopup(`<b>Ziel: </b> Igls Bahnhof <br> 47.233760 | 11.412605`, {className: 'Popup_map_w' });
-    }
-
-    else if (abfrage == "Zirbenweg") {
-        ZW.style.display = "block";  //Umstellen
-        ZW_daten.style.display = "flex";
-        showSlides(slideIndex);
-        controlElevation.clear();
-        controlElevation.load("Wanderungen/Zirbenweg.gpx");
-
-        markerGroup.clearLayers();
-        L.marker([47.226280, 11.530033], { icon: marker }).addTo(markerGroup).bindPopup(`<b>START: </b> Bergstation Glungezerbahn <br> 47.226280 | 11.530033`, {className: 'Popup_map_w' });
-        L.marker([47.210009, 11.452019], { icon: marker }).addTo(markerGroup).bindPopup(`<b>Ziel: </b> Bergstation Patscherkovel <br> 47.233760 | 11.412605`, {className: 'Popup_map_w' });
-    }
-
-
-    else if (abfrage == "Wanderung Höttinger Alm") {
-        HA.style.display = "block";  //Umstellen
-        HA_daten.style.display = "flex";
-        showSlides(slideIndex);
-        controlElevation.clear();
-        controlElevation.load("Wanderungen/Runde_Hoettinger_Alm.gpx");
-
-        markerGroup.clearLayers();
-        L.marker([47.276550, 11.386273], { icon: marker }).addTo(markerGroup).bindPopup(`<b>START: </b> Bushaltestelle Tummelplatz <br> 47.276550 | 11.386273`, {className: 'Popup_map_w' });
-        L.marker([47.286445, 11.398418], { icon: marker }).addTo(markerGroup).bindPopup(`<b>Ziel: </b> Hungerburg <br> 47.286445 | 11.398418`, {className: 'Popup_map_w' });
-    }
-
-    else if (abfrage == "Winterwanderung Seefeld") {
-        SFW.style.display = "block";  //Umstellen
-        SFW_daten.style.display = "flex";
-        showSlides(slideIndex);
-        controlElevation.clear();
-        controlElevation.load("Wanderungen/seefeld_winter.gpx");
-
-        markerGroup.clearLayers();
-        L.marker([47.313312, 11.160232], { icon: marker }).addTo(markerGroup).bindPopup(`<b>START/ZIEL: </b> Parkplatz Seewald <br> 47.313312 | 11.160232`, {className: 'Popup_map_w' });
-    }
-
-
-
-
-
 }
 
 
+function changeGPX(value,locations) {
+    let gpx_path=locations[value].gpx
+    start = locations[value].start
+    ziel = locations[value].ziel
+    
+    controlElevation.clear();
+    controlElevation.load(`Wanderungen/${gpx_path}`);
+    markerGroup.clearLayers();
 
+    if (ziel.length===0) {
+    L.marker([parseFloat(start[0]), parseFloat(start[1])], { icon: marker }).addTo(markerGroup).bindPopup(`<b>START / ZIEL:</b> ${start[2]} <br> ${start[0]} | ${start[1]}`, {className: 'Popup_map_w' });
+    }
+    else {
+    L.marker([parseFloat(start[0]), parseFloat(start[1])], { icon: marker }).addTo(markerGroup).bindPopup(`<b>START:</b> ${start[2]} <br> ${start[0]} | ${start[1]}`, {className: 'Popup_map_w' });
+    L.marker([parseFloat(ziel[0]), parseFloat(ziel[1])], { icon: marker }).addTo(markerGroup).bindPopup(`<b>ZIEL:</b> ${ziel[2]} <br> ${ziel[0]} | ${ziel[1]}`, {className: 'Popup_map_w' });
+    }}
+
+
+// Funktion zum Aktualisieren der Slideshow & des Textes
+function updateContent(selectedOrt, locations) {
+    let selected_data = locations[selectedOrt];
+
+    if (!selected_data) return;
+
+    // Grunddaten 
+    let datenHTML = `
+    <div class="item">Tourdaten:</div>
+        <div class="item"><i class="fa-solid fa-route"></i> ${selected_data.laenge} </div>
+        <div class="item"><i class="fa-solid fa-circle-up"></i> ${selected_data.bergauf} </div>
+        <div class="item"><i class="fa-solid fa-circle-down"></i> ${selected_data.bergab} </div>
+        <div class="item"><i class="fa-solid fa-mountain"></i> ${selected_data.hoechsterpunkt} </div>
+        <div>Level: <div class="${selected_data.level}"></div>
+        </div>
+         <div class="item">Ranking: <i class="${selected_data.ranking}"></i> </div>
+         <div class="item"> <a href="${selected_data.komoot}" alt="Komoot" target="_blanc" style="color:#7ebd32">Link zu Komoot</a></div>
+    `;
+
+    // Erstelle die Slideshow
+    let slideshowHTML = `
+        <div class="slideshow-container">
+            ${selected_data.bilder.map(bild => `
+                <div class="mySlides fade">
+                    <div class="image-container">
+                        <img src="data/${bild}" style="width:100%">
+                    </div>
+                </div>`).join("")}
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+        <div class="Text">
+            <h2><i class="fa-solid fa-person-hiking"></i> ${selected_data.titel}</h2>
+            <hr style="border: none; height: 1px; background-color:white;">
+            <p>${selected_data.beschreibung}</p><br><br>
+            <p>
+            <i class="fa-solid fa-user-group"></i> Unterwegs mit ${selected_data.freunde}<br>
+            <i class="fa-solid fa-certificate"></i> Ranking: ${selected_data.note} <br>
+            <i class="fa-solid fa-calendar-days"></i> ${selected_data.datum}</p>
+        </div>`;
+
+    Bilder_div.innerHTML = slideshowHTML;
+    Daten_div.innerHTML = datenHTML;
+
+
+    // Slideshow neu starten
+    slideIndex = 1;
+    showSlides(slideIndex);
+}
+
+// SLIDESHOW-FUNKTIONEN
+
+let slideIndex = 1;
+showSlides(slideIndex);
+
+// Vorwärts/Rückwärts Steuerung
+function plusSlides(n) {
+    showSlides(slideIndex += n);
+}
+
+// Aktuelles Bild anzeigen
+function showSlides(n) {
+    let slides = document.querySelectorAll(".Bilder .mySlides");
+
+    if (slides.length === 0) return; // Falls keine Slides vorhanden sind, abbrechen
+
+    if (n > slides.length) { slideIndex = 1 }
+    if (n < 1) { slideIndex = slides.length }
+
+    slides.forEach(slide => slide.style.display = "none");
+    slides[slideIndex - 1].style.display = "block";
+}
+
+// Daten von Google Sheets abrufen
+fetchGoogleSheetsData();

@@ -64,7 +64,7 @@ a {
 }
 
 main {
-    background-color: rgb(198, 233, 251);
+    background-color: rgb(195, 232, 250);
     margin-right: 1%;
     margin-left: 1%;
     padding-top: 1%;
@@ -362,18 +362,19 @@ img {
     color: white;
 }
 
-.Text div {
+.Text {
     padding-left: 2%;
     font-family: "Segoe Ui", sans-serif;
 }
 
 .Text p {
-    padding-left: 2%;
     padding-right: 2%;
     overflow-wrap: break-word;
     text-align: justify;
     font-family: arial, sans-serif;
 }
+
+
 
 
 
@@ -646,6 +647,8 @@ h2 {
 .Text {
     order: 2;
 }
+
+
 
 #w_map {
     order: 3;
