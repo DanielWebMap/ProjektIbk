@@ -111,69 +111,45 @@ var icon_ski = L.icon({
 });
 
 
-//AXAMER LIZUM
-let AL = L.marker([47.195429, 11.302501], {key: "AL", icon: icon_ski, image: "data/Skigebiete/AL.JPEG"}).bindPopup(`<h3>Axamer Lizum</h3><hr style="border: none; height: 1px; background-color:white;">`, { className: 'popup_ski' }).addTo(themaLayer.skigebiete)
+api_url_ski_marker = "https://docs.google.com/spreadsheets/d/1bUfRmWMyEoJu6NsKS87Ijs7f6vgyiZ0uaj-xaeQCkZ8/gviz/tq?tqx=out:json"
+let ski_area_data = {}
 
-//SCHLICK 2000
-let S2 = L.marker([47.154682, 11.302501], {key: "S2", icon: icon_ski, image: "data/Skigebiete/S2.JPEG" }).bindPopup(`<h3>Skizentrum Schlick 2000</h3><hr style="border: none; height: 1px; background-color:white;">`, { className: 'popup_ski' }).addTo(themaLayer.skigebiete)
+async function ski_marker_data() {
+    try {
+        const response = await fetch(api_url_ski_marker);
+        const text = await response.text();
+        const json = JSON.parse(text.substring(47, text.length - 2)); // Bereinigt Google Sheets JSON-Format
 
-//STUBAI
-let SG = L.marker([46.996596, 11.118947], {key: "SG", icon: icon_ski }).bindPopup(`<h4>Stubaier Gletscher</h4><hr style="border: none; height: 1px; background-color:white;">`, { className: 'popup_ski' }).addTo(themaLayer.skigebiete)
 
-//KÜHTAI
-let KT = L.marker([47.213590, 11.023375], {key: "KT", icon: icon_ski, image: "data/Skigebiete/KT.JPEG" }).bindPopup(`<h4>Kühtai</h4><hr style="border: none; height: 1px; background-color:white;">`, { className: 'popup_ski' }).addTo(themaLayer.skigebiete)
+        json.table.rows.slice(1).forEach(row => {
+            const key = row.c[0]?.v; // Name des Ortes
+            const titel = row.c[1]?.v; // Titel
+            const koordinaten = row.c[2]?.v ? row.c[2].v.split(",").map(img => img.trim()) : []; 
+            const gesamtnote = row.c[3]?.v;
+            const freunde = row.c[4]?.v;
+            const link = row.c[5]?.v;
+            const beschreibung = row.c[6]?.v;
+            const bilder = row.c[7]?.v ? row.c[7].v.split(",").map(img => img.trim()) : []; // Bilder als Array
 
-//PATSCHERKOFEL
-let PK = L.marker([47.221966, 11.426739], {key: "PK", icon: icon_ski, image: "data/Skigebiete/PK.JPEG" }).bindPopup(`<h4>Patscherkofel</h4><hr style="border: none; height: 1px; background-color:white;">`, { className: 'popup_ski' }).addTo(themaLayer.skigebiete)
+            L.marker([koordinaten[0], koordinaten[1]], {key: key, icon: icon_ski}).bindPopup(`<h3>${titel}</h3><hr style="border: none; height: 1px; background-color:white;">`, {className: 'popup_ski' }).addTo(themaLayer.skigebiete).on('click', ClickOnFeature); 
+       
+            ski_area_data[key] = {
+                titel,
+                koordinaten,
+                gesamtnote,
+                freunde,
+                link,
+                beschreibung,
+                bilder
+            };
+        });
+    }
+    catch (error) {
+        console.error("Fehler beim Abrufen der Google Sheets Daten:", error);
+    }
+}
 
-//SKI ARLBERG: ST.ANTON
-let SA = L.marker([47.128561, 10.263253], { key: "SA", icon: icon_ski, image: "data/Skigebiete/SA.JPEG" }).bindPopup(`<h4>St. Anton am Arlberg</h4><hr style="border: none; height: 1px; background-color:white;">`, { className: 'popup_ski' }).addTo(themaLayer.skigebiete)
-
-//ISCHGL
-let IG = L.marker([47.011374, 10.291282], {key: "IG",  icon: icon_ski }).bindPopup(`<h4>Ischgl</h4><hr style="border: none; height: 1px; background-color:white;">`, { className: 'popup_ski' }).addTo(themaLayer.skigebiete)
-
-//KAPPL (PAZNAUN-ISCHGL)
-let KA = L.marker([47.060366, 10.374178], {key: "KA",  icon: icon_ski }).bindPopup(`<h4>Kappl (Paznau-Ischgl)</h4><hr style="border: none; height: 1px; background-color:white;">`, { className: 'popup_ski' }).addTo(themaLayer.skigebiete)
-
-//Bergbahnen Rosshütte Seefeld
-let RS = L.marker([47.331510, 11.200189], { key: "RS", icon: icon_ski }).bindPopup(`<h4>Bergbahnen Seefeld</h4><hr style="border: none; height: 1px; background-color:white;">`, { className: 'popup_ski' }).addTo(themaLayer.skigebiete)
-
-//SILVAPARK
-let SP = L.marker([46.965516, 10.162335], { key: "SP", icon: icon_ski }).bindPopup(`<h4>Silvapark</h4><hr style="border: none; height: 1px; background-color:white;">`, { className: 'popup_ski' }).addTo(themaLayer.skigebiete)
-
-//BERGERALM
-let BA = L.marker([47.086812, 11.459722], { key: "BA", icon: icon_ski }).bindPopup(`<h4>Freizeitarena Bergeralm/h4><hr style="border: none; height: 1px; background-color:white;">`, { className: 'popup_ski' }).addTo(themaLayer.skigebiete)
-
-//ELFER BAHNEN
-let EB = L.marker([47.110958, 11.312333], { key: "EB", icon: icon_ski }).bindPopup(`<h4>Elferbahnen</h4><hr style="border: none; height: 1px; background-color:white;">`, { className: 'popup_ski' }).addTo(themaLayer.skigebiete)
-
-//GLUNGEZER BAHN
-let GB = L.marker([47.256345, 11.535316], { key: "GB", icon: icon_ski, image: "data/Skigebiete/GB.JPEG" }).bindPopup(`<h4>Glungezerbahn</h4><hr style="border: none; height: 1px; background-color:white;">`, { className: 'popup_ski' }).addTo(themaLayer.skigebiete)
-
-//ÖTZTAL: GURGL
-let OG = L.marker([46.899989, 11.051444], { key: "OG", icon: icon_ski }).bindPopup(`<h4>Obergurgl-Hochgurgl</h4><hr style="border: none; height: 1px; background-color:white;">`, { className: 'popup_ski' }).addTo(themaLayer.skigebiete)
-
-//HOCHKÖSSEN
-let HK = L.marker([47.653269, 12.421043], { key: "HK", icon: icon_ski }).bindPopup(`<h4>Skigebiet Hochkössen</h4><hr style="border: none; height: 1px; background-color:white;">`, { className: 'popup_ski' }).addTo(themaLayer.skigebiete)
-
-//NORDKETTE
-let IN = L.marker([47.306428, 11.379797], {key: "IN",  icon: icon_ski }).bindPopup(`<h4>Nordkette</h4><hr style="border: none; height: 1px; background-color:white;">`, { className: 'popup_ski' }).addTo(themaLayer.skigebiete)
-
-//KATZENKOPF LEUTASCH
-let KL = L.marker([47.363705, 11.165772], {key: "KL", icon: icon_ski }).bindPopup(`<h4>Katzenkopf Leutasch</h4><hr style="border: none; height: 1px; background-color:white;">`, { className: 'popup_ski' }).addTo(themaLayer.skigebiete)
-
-//KELLERJOCHBAHN
-let KJ = L.marker([47.320860, 11.719789], {key: "KJ",icon: icon_ski }).bindPopup(`<h4>Kellerjochbahn</h4><hr style="border: none; height: 1px; background-color:white;">`, { className: 'popup_ski' }).addTo(themaLayer.skigebiete)
-
-//MUTTERER ALM
-let MA = L.marker([47.222450, 11.366550], { key: "MA", icon: icon_ski, image: "data/Skigebiete/MA.JPEG" }).bindPopup(`<h4>Mutterer Alm</h4><hr style="border: none; height: 1px; background-color:white;">`, { className: 'popup_ski' }).addTo(themaLayer.skigebiete)
-
-//BERGBAHNEN OBERPERFUSS
-let BO = L.marker([47.245694, 11.237492], { key: "BO", icon: icon_ski }).bindPopup(`<h4>Bergbahnen Oberperfuss</h4><hr style="border: none; height: 1px; background-color:white;">`, { className: 'popup_ski' }).addTo(themaLayer.skigebiete)
-
-//SERLES
-let SB = L.marker([47.163648, 11.380017], { key: "SB",icon: icon_ski }).bindPopup(`<h4>Serlesbahnen</h4><hr style="border: none; height: 1px; background-color:white;">`, { className: 'popup_ski' }).addTo(themaLayer.skigebiete)
-
+ski_marker_data()
 
 
 
@@ -191,7 +167,7 @@ async function loadData_table() {
         const response = await fetch(sheetUrl_table);
         const text = await response.text();
         const json = JSON.parse(text.substring(47, text.length - 2)); // Google Sheets JSON fix
-        
+
         const rows = json.table.rows.map(row => row.c.map(cell => cell ? cell.v : ""));
         headers_table = json.table.cols.map(col => col.label);
 
@@ -203,39 +179,38 @@ async function loadData_table() {
         }));
 
 
-     } catch (error) {
-         console.error("Fehler beim Laden der Daten", error);
-     }
- }
+    } catch (error) {
+        console.error("Fehler beim Laden der Daten", error);
+    }
+}
 
- async function loadData_sidebar() {
-    try {
-        const response = await fetch(sheetUrl_sidebar);
-        const text = await response.text();
-        const json = JSON.parse(text.substring(47, text.length - 2)); // Google Sheets JSON fix
-        
-        const rows = json.table.rows.map(row => row.c.map(cell => cell ? cell.v : ""));
-        headers_sidebar = json.table.cols.map(col => col.label);
+// async function loadData_sidebar() {
+//     try {
+//         const response = await fetch(sheetUrl_sidebar);
+//         const text = await response.text();
+//         const json = JSON.parse(text.substring(47, text.length - 2)); // Google Sheets JSON fix
 
-        allData_sidebar = rows.map(row => ({
-            key: row[0],
-            name: row[1],
-            gesamtnote: row[2],
-            freunde: row[3],
-            link: row[4],
-            beschreibung: row[5]
-        }));
+//         const rows = json.table.rows.map(row => row.c.map(cell => cell ? cell.v : ""));
+//         headers_sidebar = json.table.cols.map(col => col.label);
 
-     } catch (error) {
-         console.error("Fehler beim Laden der Daten", error);
-     }
- }
+//         allData_sidebar = rows.map(row => ({
+//             key: row[0],
+//             name: row[1],
+//             gesamtnote: row[2],
+//             freunde: row[3],
+//             link: row[4],
+//             beschreibung: row[5]
+//         }));
+
+//     } catch (error) {
+//         console.error("Fehler beim Laden der Daten", error);
+//     }
+// }
 
 
 
 //SIDEBAR
 
-loadData_sidebar()
 
 let sidebar = L.control.sidebar('sidebar', {
     position: 'right',
@@ -246,13 +221,11 @@ map_spots.addControl(sidebar);
 
 function ClickOnFeature(e) {
     let marker = e.target;
-    let image = marker.options.image;
     let key = marker.options.key;
 
     // Individuelle Sidebarinfos je Skigebiet
-    let row_data = allData_sidebar.find(row => row.key === key);
 
-    sidebar.setContent(`<button id="b1"><i class="fa-regular fa-circle-xmark" font-size="50px"></i></button> <br> <div style="font-size: 1.6vw; font-family: Verdana, sans-serif;">${row_data.name} <i class="fa-solid fa-person-skiing"></i></div><p>${row_data.beschreibung} Gesamtnote: <b>${row_data.gesamtnote}</b></p><br><p>Bisher unterwegs mit ${row_data.freunde}</p><br><img src="${image}" alt="Noch kein Bild vorhanden!" style="height:50%;border:2px solid rgb(60, 123, 179); border-radius: 6px 6px 6px 6px;"><br><br><button id="b2">Weitere Infos</button>`);
+    sidebar.setContent(`<button id="b1"><i class="fa-regular fa-circle-xmark" font-size="50px"></i></button> <br> <div style="font-size: 1.6vw; font-family: Verdana, sans-serif;">${ski_area_data[key].titel} <i class="fa-solid fa-person-skiing"></i></div><p>${ski_area_data[key].beschreibung} Gesamtnote: <b>${ski_area_data[key].gesamtnote}</b></p><br><p>Bisher unterwegs mit ${ski_area_data[key].freunde}</p><br><img src="data/Skigebiete/${ski_area_data[key].bilder[0]}" alt="Noch kein Bild vorhanden!" style="height:50%;border:2px solid rgb(60, 123, 179); border-radius: 6px 6px 6px 6px;"><br><br><button id="b2">Weitere Infos</button>`);
     sidebar.show();
 
     document.getElementById('b1').addEventListener('click', function () {
@@ -263,7 +236,7 @@ function ClickOnFeature(e) {
         document.getElementById("tabelle_ski").scrollIntoView({ behavior: "smooth" });
     })
 
-    
+
     // Individuelle Tabelle je Skigebiet
     let filteredData_table = allData_table.filter(row => row.skigebiet === key);
 
@@ -272,7 +245,7 @@ function ClickOnFeature(e) {
 }
 
 
-[AL, S2, SG, KT, PK, SA, IG, KA, RS, SP, BA, EB, EB, GB, OG, HK, IN, KL, KJ, MA, BO, SB].forEach(el => el.on('click', ClickOnFeature));
+// [AL, S2, SG, KT, PK, SA, IG, KA, RS, SP, BA, EB, EB, GB, OG, HK, IN, KL, KJ, MA, BO, SB].forEach(el => el.on('click', ClickOnFeature));
 
 
 //SLIDESHOW
