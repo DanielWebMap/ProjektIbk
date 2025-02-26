@@ -183,7 +183,7 @@ function updateContent(selectedOrt, locations) {
         <div class="Text">
             <h2><i class="fa-solid fa-person-hiking"></i> ${selected_data.titel}</h2>
             <hr style="border: none; height: 1px; background-color:white;">
-            <p>${selected_data.beschreibung}</p><br><br>
+            <p>${selected_data.beschreibung}</p><br>
             <p>
             <i class="fa-solid fa-user-group"></i> Unterwegs mit ${selected_data.freunde}<br>
             <i class="fa-solid fa-certificate"></i> Ranking: ${selected_data.note} <br>
