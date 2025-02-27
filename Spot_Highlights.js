@@ -110,9 +110,17 @@ var icon_ski = L.icon({
     popupAnchor: [0, -30], // point from which the popup should open relative to the iconAnchor
 });
 
+var icon_ski_2 = L.icon({
+    iconUrl: 'icons/ski_2.png',
+    iconSize: [30, 30], // size of the icon
+    iconAnchor: [15, 30], // point of the icon which will correspond to marker's location
+    popupAnchor: [0, -30], // point from which the popup should open relative to the iconAnchor
+});
+
 
 api_url_ski_marker = "https://docs.google.com/spreadsheets/d/1bUfRmWMyEoJu6NsKS87Ijs7f6vgyiZ0uaj-xaeQCkZ8/gviz/tq?tqx=out:json"
 let ski_area_data = {}
+let inhalt_pd = []; 
 
 async function ski_marker_data() {
     try {
@@ -131,8 +139,15 @@ async function ski_marker_data() {
             const beschreibung = row.c[6]?.v;
             const bilder = row.c[7]?.v ? row.c[7].v.split(",").map(img => img.trim()) : []; // Bilder als Array
 
-            L.marker([koordinaten[0], koordinaten[1]], {key: key, icon: icon_ski}).bindPopup(`<h3>${titel}</h3><hr style="border: none; height: 1px; background-color:white;">`, {className: 'popup_ski' }).addTo(themaLayer.skigebiete).on('click', ClickOnFeature); 
-       
+            if (!beschreibung){
+            L.marker([koordinaten[0], koordinaten[1]], {key: key, icon: icon_ski}).bindPopup(`<h3>${titel}</h3><hr style="border: none; height: 1px; background-color:white;">`, {className: 'popup_ski' }).addTo(themaLayer.skigebiete).addEventListener('click', function () {
+                sidebar.hide();
+            })
+            }
+            else {
+            L.marker([koordinaten[0], koordinaten[1]], {key: key, icon: icon_ski_2}).bindPopup(`<h3>${titel}</h3><hr style="border: none; height: 1px; background-color:white;">`, {className: 'popup_ski_2' }).addTo(themaLayer.skigebiete).on('click', ClickOnFeature); 
+            }
+
             ski_area_data[key] = {
                 titel,
                 koordinaten,
@@ -142,7 +157,9 @@ async function ski_marker_data() {
                 beschreibung,
                 bilder
             };
+            inhalt_pd.push(key);
         });
+
     }
     catch (error) {
         console.error("Fehler beim Abrufen der Google Sheets Daten:", error);
@@ -153,9 +170,10 @@ ski_marker_data()
 
 
 
+
 //Datenquelle Skiinfos 
 const sheetUrl_table = "https://docs.google.com/spreadsheets/d/1mtgpiOVRSSfRYGdLBXG-J2nlSOekhlSkhQROb9hhwj0/gviz/tq?tqx=out:json";
-const sheetUrl_sidebar = "https://docs.google.com/spreadsheets/d/1lPbVtRDdLdUb_fgVczcIkqFB8hqiFbddM6yRPRbaOEg/gviz/tq?tqx=out:json";
+
 
 //Tabelle Google Charts 
 google.charts.load('current', { 'packages': ['table'] });
@@ -184,29 +202,6 @@ async function loadData_table() {
     }
 }
 
-// async function loadData_sidebar() {
-//     try {
-//         const response = await fetch(sheetUrl_sidebar);
-//         const text = await response.text();
-//         const json = JSON.parse(text.substring(47, text.length - 2)); // Google Sheets JSON fix
-
-//         const rows = json.table.rows.map(row => row.c.map(cell => cell ? cell.v : ""));
-//         headers_sidebar = json.table.cols.map(col => col.label);
-
-//         allData_sidebar = rows.map(row => ({
-//             key: row[0],
-//             name: row[1],
-//             gesamtnote: row[2],
-//             freunde: row[3],
-//             link: row[4],
-//             beschreibung: row[5]
-//         }));
-
-//     } catch (error) {
-//         console.error("Fehler beim Laden der Daten", error);
-//     }
-// }
-
 
 
 //SIDEBAR
@@ -222,6 +217,8 @@ map_spots.addControl(sidebar);
 function ClickOnFeature(e) {
     let marker = e.target;
     let key = marker.options.key;
+
+
 
     // Individuelle Sidebarinfos je Skigebiet
 
@@ -242,17 +239,43 @@ function ClickOnFeature(e) {
 
     drawTable(filteredData_table);
 
+    updateContent(key); 
+
+
+
 }
 
 
-// [AL, S2, SG, KT, PK, SA, IG, KA, RS, SP, BA, EB, EB, GB, OG, HK, IN, KL, KJ, MA, BO, SB].forEach(el => el.on('click', ClickOnFeature));
 
+function updateContent(key) {
+    let Bilder_Slider = document.querySelector(".Ski_Bilder"); 
 
-//SLIDESHOW
+    let selected_data = ski_area_data[key];
+    console.log(selected_data.bilder)
 
+    if (!selected_data) return;
 
-let HA = document.getElementById("HA");
+    // Erstelle die Slideshow
+    let slideshowHTML = `
+        <div class="slideshow-container">
+            ${selected_data.bilder.map(img => `
+                <div class="mySlides fade">
+                    <div class="image-container">
+                        <img src="data/Skigebiete/${img}" style="width:100%; height:auto;" alt="Keine Bilder vorhanden">
+                    </div>
+                </div>`).join("")}
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>`
+    
+    Bilder_Slider.innerHTML = slideshowHTML;
 
+    // Slideshow neu starten
+    slideIndex = 1;
+    showSlides(slideIndex);
+}
+
+// SLIDESHOW-FUNKTIONEN
 
 let slideIndex = 1;
 showSlides(slideIndex);
@@ -264,23 +287,16 @@ function plusSlides(n) {
 
 // Aktuelles Bild anzeigen
 function showSlides(n) {
-    let i;
-    let slides;
+    let slides = document.querySelectorAll(".slideshow-container .mySlides");
 
-    if (HA.style.display === "block") {
-        slides = document.querySelectorAll("#HA .mySlides");
-    }
+    if (slides.length === 0) return; // Falls keine Slides vorhanden sind, abbrechen
 
     if (n > slides.length) { slideIndex = 1 }
     if (n < 1) { slideIndex = slides.length }
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-    }
+
+    slides.forEach(slide => slide.style.display = "none");
     slides[slideIndex - 1].style.display = "block";
 }
-
-
-
 
 function drawTable(dataArray) {
     var data = new google.visualization.DataTable();

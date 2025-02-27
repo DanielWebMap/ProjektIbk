@@ -518,6 +518,12 @@ footer {
     color: rgb(255, 255, 255);
 }
 
+.popup_ski_2 .leaflet-popup-content-wrapper, 
+.popup_ski_2 .leaflet-popup-tip{
+    background: #003f9e;
+    color: rgb(255, 255, 255);
+}
+
 .popup_bar a,
 .popup_restaurant a {
     color: rgb(231, 243, 255);
