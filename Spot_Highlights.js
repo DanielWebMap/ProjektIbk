@@ -222,15 +222,11 @@ function ClickOnFeature(e) {
 
     // Individuelle Sidebarinfos je Skigebiet
 
-    sidebar.setContent(`<button id="b1"><i class="fa-regular fa-circle-xmark" font-size="50px"></i></button> <br> <div style="font-size: 1.6vw; font-family: Verdana, sans-serif;">${ski_area_data[key].titel} <i class="fa-solid fa-person-skiing"></i></div><p>${ski_area_data[key].beschreibung} Gesamtnote: <b>${ski_area_data[key].gesamtnote}</b></p><br><p>Bisher unterwegs mit ${ski_area_data[key].freunde}</p><br><img src="data/Skigebiete/${ski_area_data[key].bilder[0]}" alt="Noch kein Bild vorhanden!" style="height:50%;border:2px solid rgb(60, 123, 179); border-radius: 6px 6px 6px 6px;"><br><br><button id="b2">Weitere Infos</button>`);
+    sidebar.setContent(`<button id="b1"><i class="fa-regular fa-circle-xmark" font-size="50px"></i></button> <br> <div id=sidebar_titel>${ski_area_data[key].titel} <i class="fa-solid fa-person-skiing"></i></div><p>${ski_area_data[key].beschreibung} Gesamtnote: <b>${ski_area_data[key].gesamtnote}</b></p><br><p>Bisher unterwegs mit ${ski_area_data[key].freunde}<br><br><a href="${ski_area_data[key].link}" target="_blank">Link zur Website</a></p><br><img src="data/Skigebiete/${ski_area_data[key].bilder[0]}" alt="Noch kein Bild vorhanden!" style="height:50%;border:2px solid rgb(60, 123, 179); border-radius: 6px 6px 6px 6px;">`);
     sidebar.show();
 
     document.getElementById('b1').addEventListener('click', function () {
         sidebar.hide();
-    })
-
-    document.getElementById('b2').addEventListener('click', function () {
-        document.getElementById("tabelle_ski").scrollIntoView({ behavior: "smooth" });
     })
 
 
@@ -257,11 +253,11 @@ function updateContent(key) {
 
     // Erstelle die Slideshow
     let slideshowHTML = `
-        <div class="slideshow-container">
+        <div class="slideshow-container" style="border:none;">
             ${selected_data.bilder.map(img => `
                 <div class="mySlides fade">
                     <div class="image-container">
-                        <img src="data/Skigebiete/${img}" style="width:100%; height:auto;" alt="Keine Bilder vorhanden">
+                        <img src="data/Skigebiete/${img}" style="width:100%; height:100%;" alt="Keine Bilder vorhanden">
                     </div>
                 </div>`).join("")}
             <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
@@ -307,7 +303,30 @@ function drawTable(dataArray) {
 
     var table = new google.visualization.Table(document.getElementById('tabelle_ski'));
 
-    table.draw(data, { showRowNumber: true, width: '100%', height: '100%' });
+    table.draw(data, { showRowNumber: false, width: '100%', height: '100%' });
+
+    setTimeout(() => {
+        // Header-Zeile (thead tr) auswählen und den Farbverlauf entfernen
+        let headerRow = document.querySelector("#tabelle_ski table thead tr");
+        if (headerRow) {
+            headerRow.style.background = "none"; // Entfernt den Verlauf
+            headerRow.style.backgroundColor = "#003f9e"; // Einheitliche Farbe
+            headerRow.style.backgroundImage = "none"; // Falls ein Gradient existiert, wird er entfernt
+        }
+    
+        // Alle Header-Zellen (th) anpassen
+        let headerCells = document.querySelectorAll("#tabelle_ski table th");
+        headerCells.forEach(cell => {
+            cell.style.background = "none"; // Entfernt weitere Google Styles
+            cell.style.backgroundColor = "#003f9e"; // Einheitliche Hintergrundfarbe
+            cell.style.backgroundImage = "none"; // Falls Google ein Bild für den Verlauf nutzt, entfernen
+            cell.style.color = "white"; // Schriftfarbe (weiß für besseren Kontrast)
+            cell.style.fontWeight = "bold";
+            cell.style.padding = "10px";
+        });
+
+    }, 500);
+
 }
 
 
