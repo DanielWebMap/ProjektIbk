@@ -180,7 +180,7 @@ function updateContent(selectedOrt, locations) {
             <a class="next" onclick="plusSlides(1)">&#10095;</a>
         </div>
         <div class="Text">
-            <h2><i class="fa-solid fa-person-hiking"></i> ${selected_data.titel}</h2>
+            <h2><i class="fa-solid fa-person-biking"></i> ${selected_data.titel}</h2>
             <hr style="border: none; height: 1px; background-color:white;">
             <p>${selected_data.beschreibung}</p><br>
             <p>
