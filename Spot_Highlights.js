@@ -16,7 +16,7 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 // thematische Layer
 let themaLayer = {
-    gastronomie: L.featureGroup().addTo(map_spots),
+    gastronomie: L.featureGroup(),
     restaurant: L.featureGroup(),
     sightseeing: L.featureGroup(),
     freizeit: L.featureGroup(),
@@ -140,7 +140,7 @@ async function ski_marker_data() {
             const bilder = row.c[7]?.v ? row.c[7].v.split(",").map(img => img.trim()) : []; // Bilder als Array
 
             if (!beschreibung){
-            L.marker([koordinaten[0], koordinaten[1]], {key: key, icon: icon_ski}).bindPopup(`<h3>${titel}</h3><hr style="border: none; height: 1px; background-color:white;">`, {className: 'popup_ski' }).addTo(themaLayer.skigebiete).addEventListener('click', function () {
+            L.marker([koordinaten[0], koordinaten[1]], {key: key, icon: icon_ski}).bindPopup(`<h3>${titel}</h3><hr style="border: none; height: 1px; background-color:white;">Skigebiet noch nicht besucht...`, {className: 'popup_ski' }).addTo(themaLayer.skigebiete).addEventListener('click', function () {
                 sidebar.hide();
             })
             }
@@ -222,20 +222,24 @@ function ClickOnFeature(e) {
 
     // Individuelle Sidebarinfos je Skigebiet
 
-    sidebar.setContent(`<button id="b1"><i class="fa-regular fa-circle-xmark" font-size="50px"></i></button> <br> <div id=sidebar_titel>${ski_area_data[key].titel} <i class="fa-solid fa-person-skiing"></i></div><p>${ski_area_data[key].beschreibung} Gesamtnote: <b>${ski_area_data[key].gesamtnote}</b></p><br><p>Bisher unterwegs mit ${ski_area_data[key].freunde}<br><br><a href="${ski_area_data[key].link}" target="_blank">Link zur Website</a></p><br><img src="data/Skigebiete/${ski_area_data[key].bilder[0]}" alt="Noch kein Bild vorhanden!" style="height:50%;border:2px solid rgb(60, 123, 179); border-radius: 6px 6px 6px 6px;">`);
+    sidebar.setContent(`<button id="b1"><i class="fa-regular fa-circle-xmark" font-size="50px"></i></button> <br> <div id=sidebar_titel>${ski_area_data[key].titel} <i class="fa-solid fa-person-skiing"></i></div><p>${ski_area_data[key].beschreibung}<br> Gesamtnote: <b>${ski_area_data[key].gesamtnote}</b> (<a href="${ski_area_data[key].link}" target="_blank">Link zur Website</a>)</p><br><p>Bisher unterwegs mit ${ski_area_data[key].freunde}<br><br></p><button id="b2">Weitere Infos & Bilder</button><br><br><img src="data/Skigebiete/${ski_area_data[key].bilder[0]}" alt="Noch kein Bild vorhanden!" id="Bild_sidebar">`);
     sidebar.show();
 
     document.getElementById('b1').addEventListener('click', function () {
         sidebar.hide();
     })
 
+    document.getElementById("b2").addEventListener("click", function () {
+        document.querySelector(".Grid-Spalten").scrollIntoView({ behavior: "smooth" });
+      });
 
     // Individuelle Tabelle je Skigebiet
     let filteredData_table = allData_table.filter(row => row.skigebiet === key);
 
+    updateContent(key); 
     drawTable(filteredData_table);
 
-    updateContent(key); 
+    
 
 
 
@@ -245,6 +249,7 @@ function ClickOnFeature(e) {
 
 function updateContent(key) {
     let Bilder_Slider = document.querySelector(".Ski_Bilder"); 
+    let Skigebiet_Tabelle = document.querySelector(".Skigebietinfos"); 
 
     let selected_data = ski_area_data[key];
     console.log(selected_data.bilder)
@@ -263,7 +268,12 @@ function updateContent(key) {
             <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
             <a class="next" onclick="plusSlides(1)">&#10095;</a>
         </div>`
-    
+
+    let skigebiet_infos = `
+    <b>Informationen zum Skigebiet ${selected_data.titel}:</b><br><br>
+    <div id="tabelle_ski"></div>
+    `
+    Skigebiet_Tabelle.innerHTML = skigebiet_infos;
     Bilder_Slider.innerHTML = slideshowHTML;
 
     // Slideshow neu starten

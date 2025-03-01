@@ -587,6 +587,18 @@ footer {
     cursor: pointer; 
 }
 
+#b2 {
+    background-color: #003f9e;
+    font-size: 0.9vw;
+    border-radius: 6px 6px 6px 6px;
+    border-color: white;
+    padding: 4px;
+    color: white;
+}
+
+#b2:hover {
+    cursor: pointer; 
+}
 
 
 #sidebar_titel {
@@ -594,7 +606,12 @@ font-size: 1.6vw;
 font-family: Verdana, sans-serif;
 }
 
-
+#Bild_sidebar {
+ height:45%;
+ border:2px solid rgb(60, 123, 179);
+ border-radius: 6px 6px 6px 6px;
+ width: 100%
+}
 
 /* RESPONSIVE WEBDESIGN */
 
@@ -852,13 +869,14 @@ footer {
       }
 
 #b2 {
-        display: none;
-      }
+    font-size: 3.5vw;
+    padding: 4px;
+    }
 
 
 .image-container {
     width: 100%;
-    height: auto;
+
     overflow: hidden;
     display: flex;
     justify-content: center;
@@ -877,6 +895,11 @@ footer {
     margin-right: 0;
     margin-bottom: 0.5vh;
 }
+
+#Bild_sidebar {
+    width: 100%;
+    height: auto;
+   }
 }
 
 
