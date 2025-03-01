@@ -104,7 +104,6 @@ main {
 
 
 .NEU {
-    margin-left: 1%;
     grid-column: 2;
     border:3px solid rgb(0, 51, 82);
     border-radius: 6px 6px 6px 6px;
@@ -436,10 +435,10 @@ img {
     top: 80%;
     left: 1.5%;
     right: 1.5%;
-    color: rgb(3, 45, 72);
+    color: rgb(255, 255, 255);
     font-family: "Barlow Semi Condensed";
     size: 50vw;
-    background-color:#feed94;
+    background-color:#2d72a6;
     border-radius: 8px 8px 8px 8px;
 }
 
@@ -811,16 +810,14 @@ ul.nav.nav-open {
 
 .Einfuerungstext_responsive {
     display: block;
-    color: rgb(60, 123, 179);
+    color: rgb(255, 255, 255);
     font-family: Verdana, sans-serif;
     font-size: 3.4vw;
     padding: 1.3vw;
     border: 1px solid rgb(60, 123, 179);
     border-radius: 8px 8px 8px 8px;
-    background-color: #feed94;
+    background-color: #2d72a6;
     text-align: center;
-    margin-right: 1vw;
-    margin-left: 1vw;
 }
 
 .Grid-Spalten {
