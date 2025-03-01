@@ -31,7 +31,7 @@ let controlElevation = L.control.elevation({
     height: 300,
     theme: "ibk_hiking",
 }).addTo(w_map);
-controlElevation.load("Wanderungen/seefeld.gpx"); //Erste Wanderung die bei Start der Seite angezeigt wird
+controlElevation.load("Wanderungen/Seefeld.gpx"); //Erste Wanderung die bei Start der Seite angezeigt wird
 
 //MARKER DEFINITIONEN
 
