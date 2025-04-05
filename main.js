@@ -17,7 +17,7 @@ google.charts.setOnLoadCallback(drawChart);
 function drawChart() {
   var data = google.visualization.arrayToDataTable([
     ['Aktivität', 'Anzahl'],
-    ['Skitage',21],
+    ['Skitage',23],
     ['Wanderungen', 8],
     ['Fahrradtouren',4],
     ['Rodeltage',5],
@@ -52,7 +52,7 @@ else if (windowWidth < 400) {
   function drawChart() {
     var data = google.visualization.arrayToDataTable([
       ['Aktivität', 'Anzahl'],
-      ['Skitage',21],
+      ['Skitage',23],
       ['Wanderungen', 8],
       ['Fahrradtouren',4],
       ['Rodeltage',5],
