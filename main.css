@@ -680,11 +680,11 @@ h2 {
 #pulldown {
     grid-column: 1/span2;
     grid-row: 1;
-    font-size: 4vw;
+    font-size: 5vw;
     display: block;
     width: 100%;
     border-radius: 6px 6px 0px 0px;
-    padding: 2vw;
+    padding: 3vw;
     }
 
 
