@@ -31,7 +31,7 @@ let controlElevation = L.control.elevation({
     height: 300,
     theme: "ibk_hiking",
 }).addTo(w_map);
-controlElevation.load("Fahrradtouren/Absam_Terfens.gpx"); //Erste Wanderung die bei Start der Seite angezeigt wird
+controlElevation.load("Fahrradtouren/PAF_Innsbruck.gpx"); //Erste Wanderung die bei Start der Seite angezeigt wird
 
 //MARKER DEFINITIONEN
 
