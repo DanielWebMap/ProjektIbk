@@ -46,8 +46,8 @@ var marker = L.icon({
 });
 
 //Erste Marker beim Starten der Website (In diesem Falle Pfaffenhofen-Innsbruck)
-L.marker([47.268136, 11.387890], { icon: marker }).addTo(markerGroup).bindPopup(`<b>ZIEL:</b> Innsbruck <br> 47.268136 | 11.387890`, {className: 'Popup_map_w' });
-L.marker([48.538449, 11.515950], { icon: marker }).addTo(markerGroup).bindPopup(`<b>START:</b> Pfaffenhofen a.d.Ilm <br> 48.538449 | 11.515950`, {className: 'Popup_map_w' });
+L.marker([47.268240, 11.391163], { icon: marker }).addTo(markerGroup).bindPopup(`<b>ZIEL:</b> Innsbruck <br> 47.268240 | 11.391163`, {className: 'Popup_map_w' });
+L.marker([47.268076, 11.387964], { icon: marker }).addTo(markerGroup).bindPopup(`<b>START:</b> Innsbruck <br> 47.268076 | 11.387964`, {className: 'Popup_map_w' });
 
 
 let pulldown = document.querySelector("#pulldown"); // Dropdown-Menü

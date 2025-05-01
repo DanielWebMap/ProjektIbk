@@ -46,8 +46,8 @@ var marker = L.icon({
 });
 
 //Erste Marker beim Starten der Website (In diesem Falle Pfaffenhofen-Innsbruck)
-L.marker([47.265052, 11.340374], { icon: marker }).addTo(markerGroup).bindPopup(`<b>START:</b> Innsbruck <br> 47.265052 | 11.340374`, {className: 'Popup_map_w' });
-L.marker([47.328882, 11.189220], { icon: marker }).addTo(markerGroup).bindPopup(`<b>Ziel:</b> Seefeld in Tirol <br> 47.328882 | 11.189220`, {className: 'Popup_map_w' });
+L.marker([47.2765502, 11.386273], { icon: marker }).addTo(markerGroup).bindPopup(`<b>START:</b> Bushaltestelle Tummelplatz <br> 47.276550 | 11.386273`, {className: 'Popup_map_w' });
+L.marker([47.286445, 11.398418], { icon: marker }).addTo(markerGroup).bindPopup(`<b>Ziel:</b> Hungerburg <br> 47.286445 | 11.398418`, {className: 'Popup_map_w' });
 
 
 
