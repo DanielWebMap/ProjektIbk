@@ -19,7 +19,7 @@ function drawChart() {
     ['Aktivität', 'Anzahl'],
     ['Skitage',23],
     ['Wanderungen', 8],
-    ['Fahrradtouren',10],
+    ['Fahrradtouren',11],
     ['Rodeltage',5],
     ['Kurztrips',2]
   ]);
@@ -54,7 +54,7 @@ else if (windowWidth < 400) {
       ['Aktivität', 'Anzahl'],
       ['Skitage',23],
       ['Wanderungen', 8],
-      ['Fahrradtouren',10],
+      ['Fahrradtouren',11],
       ['Rodeltage',5],
       ['Kurztrips',2]
     ]);

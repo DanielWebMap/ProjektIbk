@@ -31,7 +31,7 @@ let controlElevation = L.control.elevation({
     height: 300,
     theme: "ibk_hiking",
 }).addTo(w_map);
-controlElevation.load("Fahrradtouren/Absam_Terfens.gpx"); //Erste Wanderung die bei Start der Seite angezeigt wird
+controlElevation.load("Fahrradtouren/Brennero_Merano.gpx"); //Erste Wanderung die bei Start der Seite angezeigt wird
 
 //MARKER DEFINITIONEN
 
@@ -46,8 +46,8 @@ var marker = L.icon({
 });
 
 //Erste Marker beim Starten der Website (In diesem Falle Pfaffenhofen-Innsbruck)
-L.marker([47.268240, 11.391163], { icon: marker }).addTo(markerGroup).bindPopup(`<b>ZIEL:</b> Innsbruck <br> 47.268240 | 11.391163`, {className: 'Popup_map_w' });
-L.marker([47.268076, 11.387964], { icon: marker }).addTo(markerGroup).bindPopup(`<b>START:</b> Innsbruck <br> 47.268076 | 11.387964`, {className: 'Popup_map_w' });
+L.marker([46.688058, 11.127202], { icon: marker }).addTo(markerGroup).bindPopup(`<b>ZIEL:</b> Algund - Hotel Kassian <br> 46.688058 | 11.127202`, {className: 'Popup_map_w' }); 
+L.marker([47.002641, 11.504228], { icon: marker }).addTo(markerGroup).bindPopup(`<b>START:</b> Bahnhof Brenner <br> 47.002641 | 11.504228`, {className: 'Popup_map_w' }); 
 
 
 let pulldown = document.querySelector("#pulldown"); // Dropdown-Menü
